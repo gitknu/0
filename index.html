@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>НМВ КНУ</title>
+    <title>3D Model</title>
     <meta charset="UTF-8">
     <meta http-equiv="x-ua-compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,16 +9,12 @@
     <link rel="icon" href="afiles_imgs/favicon.ico" type="image/x-icon">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" charset="UTF-8">
     <style>
- #table {
-  width: 100%;
-  }
-
 model-viewer {
     bottom: 0;
     left: 0;
     margin: 10px;
     border-radius: 50%;
-    border: 5px solid #a60b00;
+    border: 3px solid #a60b00;
     background: rgb(164,164,164);
     background: radial-gradient(circle, rgba(164,164,164,1) 0%, rgba(255,255,255,1) 54%, rgba(164,164,164,1) 100%);
 }
@@ -43,12 +39,7 @@ model-viewer {
       margin-left: 5vw;
       margin-right: 5vw; }
 
-   .float {
-	width:7vw;
-	height:9vh;
-    font-size: 2.5vh; }
-
-    model-viewer     {
+    model-viewer       {
         width: 6.5vw;
         height: 6.5vw; }
 
@@ -57,7 +48,6 @@ model-viewer {
 
     #table_land     {
     display: block; }
-
 }
 
 html {
@@ -69,35 +59,8 @@ body {
      color: #242021;
      background: linear-gradient(180deg, rgba(82,154,196,1) 0%, rgba(175,203,219,1) 3%, rgba(214,225,231,1) 6%, rgba(255,255,255,1) 100%);
     }
-
-
-.float {
-    text-decoration: none;
-	position:fixed;
-	bottom:50px;
-	right:20px;
-    opacity: 0.7;
-	background-color:white;
-	color:#b40701;
-	border-radius:50px;
-	text-align:center;
-	box-shadow: 2px 2px 3px #999;
-}
-
-    #spin {
-        height: 20vh;
-        color: #b42101;
-        display: block;
-    }
-
-#spin:after {
-  content:"";
-  animation: spin 60s linear infinite;
-}
-
  </style>
 </head>
-
 <body>
 <table>
 <script>
@@ -136,7 +99,6 @@ body {
         }
     }, 6000);
 })();
-
 </script>
 </table>
 </body>
