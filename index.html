@@ -8,8 +8,6 @@
     <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
     <link rel="icon" href="afiles_imgs/favicon.ico" type="image/x-icon">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" charset="UTF-8">
-    <link href="https://fonts.googleapis.com/css?family=Comfortaa&v1" rel="stylesheet">
-
     <style>
  #table {
   width: 100%;
@@ -28,66 +26,57 @@ model-viewer {
 @media (orientation: portrait) {
 
     model-viewer {
-        width: 20vw;
-        height: 20vw;
-    }
+        width: 15vw;
+        height: 15vw; }
 
     #table_port {
     display: block;
-    width: 100%;
-    }
-
+    width: 100%; }
+    
     #table_land {
-    display: none;
-    }
+    display: none; }
 }
 
 /* Styles for horizontal screen orientation */
   @media screen and (orientation: landscape){
       #landscape_content {
-            margin-left: 5vw;
-  margin-right: 5vw;
-      }
+      margin-left: 5vw;
+      margin-right: 5vw; }
 
    .float {
 	width:7vw;
 	height:9vh;
-        font-size: 2.5vh;
-  }
+    font-size: 2.5vh; }
 
-    model-viewer {
-        width: 8vw;
-        height: 8vw;
-    }
+    model-viewer     {
+        width: 5vw;
+        height: 5vw; }
 
-    #table_port {
-    display: none;
-    }
+    #table_port    {
+    display: none; }
 
-    #table_land {
-    display: block;
-    }
+    #table_land     {
+    display: block; }
 
 }
 
 html {
 	scroll-behavior: smooth;
-        font-family: 'Comfortaa', arial, serif;
-        font-size: 2.5vh;
-}
+    font-family: 'Comfortaa', arial, serif;
+    font-size: 2.5vh; }
 
 body {
-      color: #242021;
-      background: linear-gradient(180deg, rgba(82,154,196,1) 0%, rgba(175,203,219,1) 3%, rgba(214,225,231,1) 6%, rgba(255,255,255,1) 100%);
+     color: #242021;
+     background: linear-gradient(180deg, rgba(82,154,196,1) 0%, rgba(175,203,219,1) 3%, rgba(214,225,231,1) 6%, rgba(255,255,255,1) 100%);
     }
 
 
 .float {
-        text-decoration: none;
+    text-decoration: none;
 	position:fixed;
 	bottom:50px;
 	right:20px;
-        opacity: 0.7;
+    opacity: 0.7;
 	background-color:white;
 	color:#b40701;
 	border-radius:50px;
@@ -113,20 +102,18 @@ body {
 <table>
 <script>
 (() => {
-    const numModelViewers = 51; // Number of model-viewers required
+    const numModelViewers = 51; 
     const modelViewers = [];
-    const rowSize = Math.floor(window.innerWidth / 10);
+    const rowSize = Math.floor(window.innerWidth);
 
     for (let i = 0; i < numModelViewers; i++) {
         const modelViewer = document.createElement('model-viewer');
         modelViewer.id = `model-viewer${i}`;
         modelViewer.src = `https://gitknu.github.io/0/models/${i + 1}.glb`;
         modelViewer.interpolationDecay = 500;
-        modelViewer.style.display = 'inline-block'; // Set the display style to inline-block
-     
+        modelViewer.style.display = 'inline-block'; 
         modelViewers.push(modelViewer);
         document.body.appendChild(modelViewer);
-
         if ((i + 1) % rowSize === 0) {
             const lineBreak = document.createElement('br');
             document.body.appendChild(lineBreak);
@@ -134,12 +121,11 @@ body {
     }
 
     const orbitCycle = [
-	'120deg 75deg 12m',
-	'90deg 77deg 12m',
+	'90deg 45deg 12m',
 	'60deg 75deg 12m',
-        '-90deg 77deg 12m',
-        '-60deg 75deg 12m',
-        '-120deg 65deg 12m'
+	'0deg 45deg 12m',
+    '-60deg 75deg 12m',
+    '-90deg 45deg 12m'
     ];
 
     setInterval(() => {
@@ -153,7 +139,5 @@ body {
 
 </script>
 </table>
-</div>
-</div>
 </body>
 </html>
