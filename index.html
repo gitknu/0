@@ -71,7 +71,7 @@
 <body>
 <script>
     (() => {
-        const numModelViewers = 51;
+        const numModelViewers = 5;
         const modelViewers = [];
         const rowSize = Math.floor(window.innerWidth);
         let orbitInterval;
@@ -105,23 +105,25 @@
             clearInterval(orbitInterval);
         }
 
-        function drag(event) {
-            if (!isDragging) return;
+       function drag(event) {
+    if (!isDragging) return;
 
-            const deltaX = event.clientX - startX;
-            const deltaY = event.clientY - startY;
+    const sensitivity = 0.5; // Adjust sensitivity here
+    const deltaX = event.clientX - startX;
+    const deltaY = event.clientY - startY;
 
-            for (const modelViewer of modelViewers) {
-                const orbit = modelViewer.cameraOrbit;
-                const [yaw, pitch, radius] = orbit.split(' ');
-                const newYaw = parseFloat(yaw) + deltaX * 0.1;
-                const newPitch = parseFloat(pitch) - deltaY * 0.1;
-                modelViewer.cameraOrbit = `${newYaw}deg ${newPitch}deg ${radius}`;
-            }
+    for (const modelViewer of modelViewers) {
+        const orbit = modelViewer.cameraOrbit;
+        const [yaw, pitch, radius] = orbit.split(' ');
+        const newYaw = parseFloat(yaw) + deltaX * sensitivity;
+        const newPitch = parseFloat(pitch) - deltaY * sensitivity;
+        modelViewer.cameraOrbit = `${newYaw}deg ${newPitch}deg ${radius}`;
+    }
 
-            startX = event.clientX;
-            startY = event.clientY;
-        }
+    startX = event.clientX;
+    startY = event.clientY;
+}
+
 
         function endDrag() {
             isDragging = false;
