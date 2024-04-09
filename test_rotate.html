@@ -343,7 +343,7 @@ background-color: black;
   }
 
   function startRotation() {
-    rotationInterval = setInterval(rotateCarousel, 7000);
+    rotationInterval = setInterval(rotateCarousel, 30000);
   }
 
   function stopRotation() {
@@ -352,7 +352,7 @@ background-color: black;
 
   function startOrResetRotationTimer() {
     clearTimeout(startOrResetRotationTimer.timer);
-    startOrResetRotationTimer.timer = setTimeout(startRotation, 10000);
+    startOrResetRotationTimer.timer = setTimeout(startRotation, 60000);
   }
 
   rotateButton.addEventListener('click', () => {
