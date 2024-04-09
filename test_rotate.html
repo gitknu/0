@@ -59,6 +59,13 @@ font-family: "Montserrat Alternates", sans-serif;
   inset 0 0 0 2000px rgba(0,0,0,0.2), 
   0 0 25px rgba(0, 0, 0, 0.5);
   display: flex;
+  opacity: 0;
+}
+#carousel__face_9, #carousel__face_2 {
+      opacity: 0.5;
+      }
+#carousel__face_1 {
+      opacity: 1;
 }
 span {
   margin: 10px;
@@ -84,13 +91,13 @@ background-color: blue;
 background-color: purple;
  transform: rotateY(160deg) translateZ(430px); }
 .carousel__face:nth-child(6) { 
-background-color: grey;
+background-color: black;
  transform: rotateY(200deg) translateZ(430px); }
 .carousel__face:nth-child(7) { 
 background-color: black;
  transform: rotateY(240deg) translateZ(430px); }
 .carousel__face:nth-child(8) {
-background-color: white;
+background-color: black;
   transform: rotateY(280deg) translateZ(430px); }
 .carousel__face:nth-child(9) {
   background-image: url("https://images.pexels.com/photos/1175135/pexels-photo-1175135.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260");
@@ -139,9 +146,17 @@ background-color: white;
   const rotateButton = document.getElementById('rotateButton');
   const rotationCountDisplay = document.getElementById('rotationCountDisplay');
   const carouselFace1 = document.getElementById('carousel__face_1');
+  const carouselFace2 = document.getElementById('carousel__face_2');
+  const carouselFace3 = document.getElementById('carousel__face_3');
+  const carouselFace4 = document.getElementById('carousel__face_4');
+  const carouselFace5 = document.getElementById('carousel__face_5');
+  const carouselFace6 = document.getElementById('carousel__face_6');
+  const carouselFace7 = document.getElementById('carousel__face_7');
+  const carouselFace8 = document.getElementById('carousel__face_8');
+  const carouselFace9 = document.getElementById('carousel__face_9');
 
   let rotationAngle = 0;
-  let rotationCount = 0;
+  let rotationCount = 1;
   let rotationInterval;
 
   function rotateCarousel() {
@@ -153,14 +168,100 @@ background-color: white;
     rotationCount++;
     rotationCountDisplay.textContent = `Rotation Count: ${rotationCount}`;
     
-    if (rotationCount >= 3 && rotationCount <= 8) {
-      carouselFace1.style.opacity = 0;
-    } else if (rotationCount === 2 || rotationCount === 8) {
-      carouselFace1.style.transition = 'opacity 0.5s ease';
-      carouselFace1.style.opacity = 0.5;
-    } else {
+    if (rotationCount === 0) {
+      carouselFace1.style.opacity = 1;
+      carouselFace2.style.opacity, carouselFace3.style.opacity, carouselFace4.style.opacity, carouselFace5.style.opacity, carouselFace6.style.opacity, carouselFace7.style.opacity, carouselFace8.style.opacity, carouselFace9.style.opacity = 0;
+    } else if (rotationCount === 1) {
       carouselFace1.style.transition = 'opacity 0.5s ease';
       carouselFace1.style.opacity = 1;
+      carouselFace2.style.transition = 'opacity 0.5s ease';
+      carouselFace2.style.opacity = 0.5;
+      carouselFace3.style.opacity, carouselFace4.style.opacity, carouselFace5.style.opacity, carouselFace6.style.opacity, carouselFace7.style.opacity, carouselFace8.style.opacity = 0;
+      carouselFace9.style.transition = 'opacity 0.5s ease';
+      carouselFace9.style.opacity = 0.5;
+    } else if (rotationCount === 2) {
+      carouselFace1.style.transition = 'opacity 0.5s ease';
+      carouselFace1.style.opacity = 0.5;
+      carouselFace2.style.transition = 'opacity 0.5s ease';
+      carouselFace2.style.opacity = 1;
+      carouselFace3.style.transition = 'opacity 0.5s ease';
+      carouselFace3.style.opacity = 0.5;
+      carouselFace4.style.opacity, carouselFace5.style.opacity, carouselFace6.style.opacity, carouselFace7.style.opacity, carouselFace8.style.opacity, carouselFace9.style.opacity = 0;
+    } else if (rotationCount === 3) {
+      carouselFace1.style.transition = 'opacity 0.5s ease';
+      carouselFace1.style.opacity = 0;
+      carouselFace3.style.transition = 'opacity 0.5s ease';
+      carouselFace3.style.opacity = 1;
+      carouselFace4.style.transition = 'opacity 0.5s ease';
+      carouselFace4.style.opacity = 0.5;
+      carouselFace5.style.opacity, carouselFace6.style.opacity, carouselFace7.style.opacity, carouselFace8.style.opacity, carouselFace9.style.opacity = 0;
+    } else if (rotationCount === 4) {
+      carouselFace1.style.opacity = 0;
+      carouselFace2.style.opacity = 0;
+      carouselFace3.style.transition = 'opacity 0.5s ease';
+      carouselFace3.style.opacity = 0.5;
+      carouselFace4.style.transition = 'opacity 0.5s ease';
+      carouselFace4.style.opacity = 1;
+      carouselFace5.style.transition = 'opacity 0.5s ease';
+      carouselFace5.style.opacity = 0.5;
+      carouselFace6.style.opacity = 0;
+      carouselFace7.style.opacity = 0;
+      carouselFace8.style.opacity = 0;
+      carouselFace9.style.opacity = 0;
+    } else if (rotationCount === 5) {
+      carouselFace1.style.opacity = 0;
+      carouselFace2.style.opacity = 0;
+      carouselFace3.style.transition = 'opacity 0.5s ease';
+      carouselFace3.style.opacity = 0;
+      carouselFace4.style.transition = 'opacity 0.5s ease';
+      carouselFace4.style.opacity = 0.5;
+      carouselFace5.style.transition = 'opacity 0.5s ease';
+      carouselFace5.style.opacity = 1;
+      carouselFace6.style.transition = 'opacity 0.5s ease';
+      carouselFace6.style.opacity = 0.5;
+      carouselFace7.style.opacity = 0;
+      carouselFace8.style.opacity = 0;
+      carouselFace9.style.opacity = 0;
+    } else if (rotationCount === 6) {
+      carouselFace1.style.opacity = 0;
+      carouselFace2.style.opacity = 0;
+      carouselFace3.style.opacity = 0;
+      carouselFace4.style.opacity = 0;
+      carouselFace5.style.transition = 'opacity 0.5s ease';
+      carouselFace5.style.opacity = 0.5;
+      carouselFace6.style.transition = 'opacity 0.5s ease';
+      carouselFace6.style.opacity = 1;
+      carouselFace7.style.transition = 'opacity 0.5s ease';
+      carouselFace7.style.opacity = 0.5;
+      carouselFace8.style.opacity = 0;
+      carouselFace9.style.opacity = 0;
+    } else if (rotationCount === 7) {
+      carouselFace1.style.opacity, carouselFace2.style.opacity, carouselFace3.style.opacity, carouselFace4.style.opacity, carouselFace5.style.opacity = 0;
+      carouselFace6.style.transition = 'opacity 0.5s ease';
+      carouselFace6.style.opacity = 0.5;
+      carouselFace7.style.transition = 'opacity 0.5s ease';
+      carouselFace7.style.opacity = 1;
+      carouselFace8.style.transition = 'opacity 0.5s ease';
+      carouselFace8.style.opacity = 0.5;
+      carouselFace9.style.opacity = 0;
+    } else if (rotationCount === 8) {
+      carouselFace1.style.opacity, carouselFace2.style.opacity, carouselFace3.style.opacity, carouselFace4.style.opacity, carouselFace5.style.opacity, carouselFace6.style.opacity = 0;
+      carouselFace7.style.transition = 'opacity 0.5s ease';
+      carouselFace7.style.opacity = 0.5;
+      carouselFace8.style.transition = 'opacity 0.5s ease';
+      carouselFace8.style.opacity = 1;
+      carouselFace9.style.transition = 'opacity 0.5s ease';
+      carouselFace9.style.opacity = 0.5;
+    } else if (rotationCount === 9) {
+      carouselFace1.style.transition = 'opacity 0.5s ease';
+      carouselFace1.style.opacity = 0.5;
+      carouselFace2.style.opacity, carouselFace3.style.opacity, carouselFace4.style.opacity, carouselFace5.style.opacity, carouselFace6.style.opacity, carouselFace7.style.opacity = 0;
+      carouselFace8.style.transition = 'opacity 0.5s ease';
+      carouselFace8.style.opacity = 0.5;
+      carouselFace9.style.transition = 'opacity 0.5s ease';
+      carouselFace9.style.opacity = 1;
+    } else { 
+      
     }
   }
 
