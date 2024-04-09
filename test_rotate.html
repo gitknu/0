@@ -109,66 +109,85 @@ background-color: white;
 <body>
 <div class="container">
   <div class="carousel">
-    <div class="carousel__face"><span><h3>Animals</h3><p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries.</p><div class="model-viewer-wrapper">
+    <div class="carousel__face" id="carousel__face_1"><span><h3>Animals</h3><p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries.</p><div class="model-viewer-wrapper">
 <model-viewer id="model-viewer1" src="https://gitknu.github.io/0/models/1.glb" interpolationDecay="7500" style="display:inline-block;"></model-viewer>
 <model-viewer id="model-viewer2" src="https://gitknu.github.io/0/models/2.glb" interpolationDecay="7500" style="display:inline-block;"></model-viewer>
 <model-viewer id="model-viewer3" src="https://gitknu.github.io/0/models/3.glb" interpolationDecay="7500" style="display:inline-block;"></model-viewer>
 <model-viewer id="model-viewer4" src="https://gitknu.github.io/0/models/4.glb" interpolationDecay="7500" style="display:inline-block;"></model-viewer>
 <model-viewer id="model-viewer5" src="https://gitknu.github.io/0/models/5.glb" interpolationDecay="7500" style="display:inline-block;"></model-viewer>
 </div></span></div>
-    <div class="carousel__face"><span><h3>Animals</h3><p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries.</p><div class="model-viewer-wrapper">
+    <div class="carousel__face" id="carousel__face_2"><span><h3>Animals</h3><p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries.</p><div class="model-viewer-wrapper">
 <model-viewer id="model-viewer6" src="https://gitknu.github.io/0/models/6.glb" interpolationDecay="7500" style="display:inline-block;"></model-viewer>
 <model-viewer id="model-viewer7" src="https://gitknu.github.io/0/models/7.glb" interpolationDecay="7500" style="display:inline-block;"></model-viewer>
 <model-viewer id="model-viewer8" src="https://gitknu.github.io/0/models/8.glb" interpolationDecay="7500" style="display:inline-block;"></model-viewer>
 <model-viewer id="model-viewer9" src="https://gitknu.github.io/0/models/9.glb" interpolationDecay="7500" style="display:inline-block;"></model-viewer>
 <model-viewer id="model-viewer10" src="https://gitknu.github.io/0/models/10.glb" interpolationDecay="7500" style="display:inline-block;"></model-viewer>
 </div></span></div>
-    <div class="carousel__face"><span>Special is the key</span></div>
-    <div class="carousel__face"><span>For you</span></div>
-    <div class="carousel__face"><span>Just give it</span></div>
-    <div class="carousel__face"><span>A try</span></div>
-    <div class="carousel__face"><span>And see</span></div>
-    <div class="carousel__face"><span>How IT Works</span></div>
-    <div class="carousel__face"><span>Woow</span></div>
+    <div class="carousel__face" id="carousel__face_3"><span>Special is the key</span></div>
+    <div class="carousel__face" id="carousel__face_4"><span>For you</span></div>
+    <div class="carousel__face" id="carousel__face_5"><span>Just give it</span></div>
+    <div class="carousel__face" id="carousel__face_6"><span>A try</span></div>
+    <div class="carousel__face" id="carousel__face_7"><span>And see</span></div>
+    <div class="carousel__face" id="carousel__face_8"><span>How IT Works</span></div>
+    <div class="carousel__face" id="carousel__face_9"><span>Woow</span></div>
   </div>
     <button id="rotateButton">Rotate</button>
     <span id="rotationCountDisplay" style="color: black">Rotation Count: 0</span>
 </div>
- <script>
-    const carousel = document.querySelector('.carousel');
-    const rotateButton = document.getElementById('rotateButton');
-    const rotationCountDisplay = document.getElementById('rotationCountDisplay');
-    let rotationAngle = 0;
-    let rotationCount = 0;
-    let rotationInterval;
+<script>
+  const carousel = document.querySelector('.carousel');
+  const rotateButton = document.getElementById('rotateButton');
+  const rotationCountDisplay = document.getElementById('rotationCountDisplay');
+  const carouselFace1 = document.getElementById('carousel__face_1');
 
-    function rotateCarousel() {
-      rotationAngle -= 40;
-      carousel.style.transform = `rotateY(${rotationAngle}deg)`;
-if (rotationAngle % 360 === 0 && Number.isInteger(rotationAngle / 360)) {
-    rotationCount = 0; // Reset rotationCount to 1 when it reaches 9
+  let rotationAngle = 0;
+  let rotationCount = 0;
+  let rotationInterval;
+
+  function rotateCarousel() {
+    rotationAngle -= 40;
+    carousel.style.transform = `rotateY(${rotationAngle}deg)`;
+    if (rotationAngle % 360 === 0 && Number.isInteger(rotationAngle / 360)) {
+      rotationCount = 0; 
+    }
+    rotationCount++;
+    rotationCountDisplay.textContent = `Rotation Count: ${rotationCount}`;
+    
+    if (rotationCount >= 3 && rotationCount <= 8) {
+      carouselFace1.style.opacity = 0;
+    } else if (rotationCount === 2 || rotationCount === 8) {
+      carouselFace1.style.transition = 'opacity 0.5s ease';
+      carouselFace1.style.opacity = 0.5;
+    } else {
+      carouselFace1.style.transition = 'opacity 0.5s ease';
+      carouselFace1.style.opacity = 1;
+    }
   }
-      rotationCount++;
-      rotationCountDisplay.textContent = `Rotation Count: ${rotationCount}`;
-    }
-    function startRotation() {
-      rotationInterval = setInterval(rotateCarousel, 7000);
-    }
-    function stopRotation() {
-      clearInterval(rotationInterval);
-    }
-    function startOrResetRotationTimer() {
-      clearTimeout(startOrResetRotationTimer.timer);
-      startOrResetRotationTimer.timer = setTimeout(startRotation, 10000);
-    }
-    rotateButton.addEventListener('click', () => {
-      stopRotation();
-      rotateCarousel(); 
-      startOrResetRotationTimer();
-    });
-    carousel.addEventListener('click', startOrResetRotationTimer);
-    startRotation(); 
-  </script>
+
+  function startRotation() {
+    rotationInterval = setInterval(rotateCarousel, 7000);
+  }
+
+  function stopRotation() {
+    clearInterval(rotationInterval);
+  }
+
+  function startOrResetRotationTimer() {
+    clearTimeout(startOrResetRotationTimer.timer);
+    startOrResetRotationTimer.timer = setTimeout(startRotation, 10000);
+  }
+
+  rotateButton.addEventListener('click', () => {
+    stopRotation();
+    rotateCarousel();
+    startOrResetRotationTimer();
+  });
+
+  carousel.addEventListener('click', startOrResetRotationTimer);
+
+  startRotation();
+</script>
+
 <script>
    (() => {
         const modelViewers = [document.getElementById('model-viewer1'), document.getElementById('model-viewer2'), document.getElementById('model-viewer3'), document.getElementById('model-viewer4'), document.getElementById('model-viewer5'), document.getElementById('model-viewer6'), document.getElementById('model-viewer7'), document.getElementById('model-viewer8'), document.getElementById('model-viewer9'), document.getElementById('model-viewer10')
