@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>3D Model</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="x-ua-compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+    <style>
+model-viewer {
+    display: block; 
+    border-radius: 50%;
+    background: rgb(164, 164, 164);
+    background: radial-gradient(circle, rgba(164, 164, 164, 1) 0%, rgba(255, 255, 255, 1) 54%, rgba(164, 164, 164, 1) 100%);
+    touch-action: none;
+    width: 100px;
+    height: 100px;
+}
+.model-viewer-wrapper {
+    position: absolute;
+    bottom: 15px;
+    left: 15px;
+}
+        @media (orientation: portrait) {
+            model-viewer {
+                width: 15vw;
+                height: 15vw;
+            }
+            #table_port {
+                display: block;
+                width: 100%;
+            }
+            #table_land {
+                display: none;
+            }
+        }
+        @media screen and (orientation: landscape) {
+            #landscape_content {
+                margin-left: 5vw;
+                margin-right: 5vw;
+            }
+            model-viewer {
+                width: 6.5vw;
+                height: 6.5vw;
+            }
+            #table_port {
+                display: none;
+            }
+            #table_land {
+                display: block;
+            }
+        }
+        html, body {
+    height: 100%;
+    margin: 0;
+}
+
+body {
+    scroll-behavior: smooth;
+    font-family: 'Comfortaa', arial, serif;
+    font-size: 2.5vh;
+    color: #242021;
+    background: linear-gradient(180deg, rgba(82, 154, 196, 1) 0%, rgba(175, 203, 219, 1) 3%, rgba(214, 225, 231, 1) 6%, rgba(255, 255, 255, 1) 100%);
+}
+.models {
+    border: 1px solid #000;
+    border-radius: 20px;
+    width: 50%;
+    height: 40%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 10px;
+    background-color: yellow;
+}
+    </style>
+</head>
+<body>
+    <div class="models">
+        <div class="model-viewer-wrapper">
+<model-viewer id="model-viewer1" src="https://gitknu.github.io/0/models/1.glb" interpolationDecay="7500" style="display:inline-block;"></model-viewer>
+<model-viewer id="model-viewer2" src="https://gitknu.github.io/0/models/2.glb" interpolationDecay="7500" style="display:inline-block;"></model-viewer>
+<model-viewer id="model-viewer3" src="https://gitknu.github.io/0/models/3.glb" interpolationDecay="7500" style="display:inline-block;"></model-viewer>
+<model-viewer id="model-viewer4" src="https://gitknu.github.io/0/models/4.glb" interpolationDecay="7500" style="display:inline-block;"></model-viewer>
+<model-viewer id="model-viewer5" src="https://gitknu.github.io/0/models/5.glb" interpolationDecay="7500" style="display:inline-block;"></model-viewer>
+</div>
+</div>
+<script>
+    (() => {
+        const modelViewers = [document.getElementById('model-viewer1'), document.getElementById('model-viewer2'), document.getElementById('model-viewer3'), document.getElementById('model-viewer4'), document.getElementById('model-viewer5')];
+        
+        let isDragging = false;
+        let startX, startY;
+
+        function startDrag(event) {
+            isDragging = true;
+            startX = event.clientX;
+            startY = event.clientY;
+            clearInterval(orbitInterval);
+        }
+
+        function drag(event) {
+            if (!isDragging) return;
+            const sensitivity = 0.5;
+            const deltaX = event.clientX - startX;
+            const deltaY = event.clientY - startY;
+            for (const modelViewer of modelViewers) {
+                const orbit = modelViewer.cameraOrbit;
+                const [yaw, pitch, radius] = orbit.split(' ');
+                const newYaw = parseFloat(yaw) + deltaX * sensitivity;
+                const newPitch = parseFloat(pitch) - deltaY * sensitivity;
+                modelViewer.cameraOrbit = `${newYaw}deg ${newPitch}deg ${radius}`;
+            }
+            startX = event.clientX;
+            startY = event.clientY;
+        }
+
+        function endDrag() {
+            isDragging = false;
+            // Restart the orbit interval after 7.5 seconds when dragging ends
+            setTimeout(() => {
+                orbitInterval = setInterval(() => {
+                    for (let i = 0; i < modelViewers.length; i++) {
+                        const currentOrbitIndex = orbitCycle.indexOf(modelViewers[i].cameraOrbit);
+                        modelViewers[i].cameraOrbit = orbitCycle[(currentOrbitIndex + 1) % orbitCycle.length];
+                    }
+                }, 6000);
+            }, 7500);
+        }
+
+        const orbitCycle = [
+            '45deg 75deg 12m',
+            '20deg 95deg 12m',
+            '-20deg 125deg 12m',
+            '-45deg 75deg 12m',
+            '-90deg 95deg 12m',
+            '90deg 95deg 12m',
+            '140deg 75deg 12m',
+            '-140deg 75deg 12m'
+        ];
+        // Start the initial orbit after 7.5 seconds
+        setTimeout(() => {
+            orbitInterval = setInterval(() => {
+                for (let i = 0; i < modelViewers.length; i++) {
+                    const currentOrbitIndex = orbitCycle.indexOf(modelViewers[i].cameraOrbit);
+                    modelViewers[i].cameraOrbit = orbitCycle[(currentOrbitIndex + 1) % orbitCycle.length];
+                }
+            }, 6000);
+        }, 7500);
+
+        for (const modelViewer of modelViewers) {
+            modelViewer.addEventListener('mousedown', startDrag);
+            modelViewer.addEventListener('mousemove', drag);
+            modelViewer.addEventListener('mouseup', endDrag);
+        }
+    })();
+</script>
+</body>
+</html>
