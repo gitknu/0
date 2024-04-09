@@ -1,0 +1,191 @@
+<html>
+<head>
+    <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+    <style>
+        model-viewer {
+    display: block; 
+    border-radius: 50%;
+    background: rgb(164, 164, 164);
+    background: radial-gradient(circle, rgba(164, 164, 164, 1) 0%, rgba(255, 255, 255, 1) 54%, rgba(164, 164, 164, 1) 100%);
+    touch-action: none;
+    width: 50px;
+    height: 50px;
+}
+.model-viewer-wrapper {
+    position: absolute;
+    bottom: 15px;
+    left: 15px;
+}
+
+body {
+  margin: 0;
+  background: lightgray;
+  font-family: sans-serif;
+  color: #fefefe;
+}
+.container {
+  position: relative;
+  width: 320px;
+  margin: 100px auto 0 auto;
+  perspective: 1000px;
+}
+
+.carousel {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d; 
+  animation: rotate360 360s infinite forwards linear;
+}
+.carousel__face { 
+  border-radius:20px;
+  position: absolute;
+  width: 300px;
+  height: 187px;
+  top: 20px;
+  left: 10px;
+  right: 10px;
+  background-size: cover;
+  box-shadow:inset 0 0 0 2000px rgba(0,0,0,0.5);
+  display: flex;
+}
+
+span {
+  margin: auto;
+  font-size: 10px;
+}
+
+
+.carousel__face:nth-child(1) {
+  background-image: url("https://images.pexels.com/photos/1141853/pexels-photo-1141853.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260");
+  transform: rotateY(  0deg) translateZ(430px); }
+.carousel__face:nth-child(2) { 
+  background-image: url("https://images.pexels.com/photos/1258865/pexels-photo-1258865.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260");
+    transform: rotateY( 40deg) translateZ(430px); }
+.carousel__face:nth-child(3) {
+  background-image: url("https://images.pexels.com/photos/808466/pexels-photo-808466.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260");
+  transform: rotateY( 80deg) translateZ(430px); }
+.carousel__face:nth-child(4) {
+  background-image: url("https://images.pexels.com/photos/1394841/pexels-photo-1394841.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260");
+  transform: rotateY(120deg) translateZ(430px); }
+.carousel__face:nth-child(5) { 
+  background-image: url("https://images.pexels.com/photos/969679/pexels-photo-969679.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260");
+ transform: rotateY(160deg) translateZ(430px); }
+.carousel__face:nth-child(6) { 
+  background-image: url("https://images.pexels.com/photos/1834400/pexels-photo-1834400.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260");
+ transform: rotateY(200deg) translateZ(430px); }
+.carousel__face:nth-child(7) { 
+  background-image: url("https://images.pexels.com/photos/1415268/pexels-photo-1415268.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260");
+ transform: rotateY(240deg) translateZ(430px); }
+.carousel__face:nth-child(8) {
+  background-image: url("https://images.pexels.com/photos/135018/pexels-photo-135018.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260");
+  transform: rotateY(280deg) translateZ(430px); }
+.carousel__face:nth-child(9) {
+  background-image: url("https://images.pexels.com/photos/1175135/pexels-photo-1175135.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260");
+  transform: rotateY(320deg) translateZ(430px); }
+
+
+
+@keyframes rotate360 {
+  from {
+    transform: rotateY(0deg);
+  }
+  to {
+    transform: rotateY(-360deg);
+  }
+}
+
+    </style>
+    </head>
+<body>
+<div class="container">
+  <div class="carousel">
+    <div class="carousel__face"><span><h3>Animals</h3><p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries.</p><div class="model-viewer-wrapper">
+<model-viewer id="model-viewer1" src="https://gitknu.github.io/0/models/1.glb" interpolationDecay="7500" style="display:inline-block;"></model-viewer>
+<model-viewer id="model-viewer2" src="https://gitknu.github.io/0/models/2.glb" interpolationDecay="7500" style="display:inline-block;"></model-viewer>
+<model-viewer id="model-viewer3" src="https://gitknu.github.io/0/models/3.glb" interpolationDecay="7500" style="display:inline-block;"></model-viewer>
+<model-viewer id="model-viewer4" src="https://gitknu.github.io/0/models/4.glb" interpolationDecay="7500" style="display:inline-block;"></model-viewer>
+<model-viewer id="model-viewer5" src="https://gitknu.github.io/0/models/5.glb" interpolationDecay="7500" style="display:inline-block;"></model-viewer>
+</div></span></div>
+    <div class="carousel__face"><span>Very special</span></div>
+    <div class="carousel__face"><span>Special is the key</span></div>
+    <div class="carousel__face"><span>For you</span></div>
+    <div class="carousel__face"><span>Just give it</span></div>
+    <div class="carousel__face"><span>A try</span></div>
+    <div class="carousel__face"><span>And see</span></div>
+    <div class="carousel__face"><span>How IT Works</span></div>
+    <div class="carousel__face"><span>Woow</span></div>
+  </div>
+</div>
+<script>
+    (() => {
+        const modelViewers = [document.getElementById('model-viewer1'), document.getElementById('model-viewer2'), document.getElementById('model-viewer3'), document.getElementById('model-viewer4'), document.getElementById('model-viewer5')];
+        
+        let isDragging = false;
+        let startX, startY;
+
+        function startDrag(event) {
+            isDragging = true;
+            startX = event.clientX;
+            startY = event.clientY;
+            clearInterval(orbitInterval);
+        }
+
+        function drag(event) {
+            if (!isDragging) return;
+            const sensitivity = 0.5;
+            const deltaX = event.clientX - startX;
+            const deltaY = event.clientY - startY;
+            for (const modelViewer of modelViewers) {
+                const orbit = modelViewer.cameraOrbit;
+                const [yaw, pitch, radius] = orbit.split(' ');
+                const newYaw = parseFloat(yaw) + deltaX * sensitivity;
+                const newPitch = parseFloat(pitch) - deltaY * sensitivity;
+                modelViewer.cameraOrbit = `${newYaw}deg ${newPitch}deg ${radius}`;
+            }
+            startX = event.clientX;
+            startY = event.clientY;
+        }
+
+        function endDrag() {
+            isDragging = false;
+            // Restart the orbit interval after 7.5 seconds when dragging ends
+            setTimeout(() => {
+                orbitInterval = setInterval(() => {
+                    for (let i = 0; i < modelViewers.length; i++) {
+                        const currentOrbitIndex = orbitCycle.indexOf(modelViewers[i].cameraOrbit);
+                        modelViewers[i].cameraOrbit = orbitCycle[(currentOrbitIndex + 1) % orbitCycle.length];
+                    }
+                }, 6000);
+            }, 7500);
+        }
+
+        const orbitCycle = [
+            '45deg 75deg 12m',
+            '20deg 95deg 12m',
+            '-20deg 125deg 12m',
+            '-45deg 75deg 12m',
+            '-90deg 95deg 12m',
+            '90deg 95deg 12m',
+            '140deg 75deg 12m',
+            '-140deg 75deg 12m'
+        ];
+        // Start the initial orbit after 7.5 seconds
+        setTimeout(() => {
+            orbitInterval = setInterval(() => {
+                for (let i = 0; i < modelViewers.length; i++) {
+                    const currentOrbitIndex = orbitCycle.indexOf(modelViewers[i].cameraOrbit);
+                    modelViewers[i].cameraOrbit = orbitCycle[(currentOrbitIndex + 1) % orbitCycle.length];
+                }
+            }, 6000);
+        }, 7500);
+
+        for (const modelViewer of modelViewers) {
+            modelViewer.addEventListener('mousedown', startDrag);
+            modelViewer.addEventListener('mousemove', drag);
+            modelViewer.addEventListener('mouseup', endDrag);
+        }
+    })();
+</script>
+</body>
+</html>
