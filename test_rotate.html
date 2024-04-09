@@ -13,10 +13,14 @@ model-viewer {
     height: 50px;
     box-shadow: 0 0 20px rgba(255, 255, 255, 0.8); 
 }
+#model-viewer-wrapper_1 {
+    display: block;
+}
 .model-viewer-wrapper {
     position: absolute;
     bottom: 10px;
     left: 10px;
+    display: none;
 }
 body {
   margin: 0;
@@ -121,14 +125,15 @@ background-color: black;
 <div class="container">
   <div class="carousel">
     <div class="carousel__face" id="carousel__face_1"><span><h3>Animals</h3><p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries.</p>
-    <div class="model-viewer-wrapper">
+    <div class="model-viewer-wrapper" id="model-viewer-wrapper_1">
 <model-viewer id="model-viewer1" src="https://gitknu.github.io/0/models/1.glb" interpolationDecay="7500" style="display:inline-block;"></model-viewer>
 <model-viewer id="model-viewer2" src="https://gitknu.github.io/0/models/2.glb" interpolationDecay="7500" style="display:inline-block;"></model-viewer>
 <model-viewer id="model-viewer3" src="https://gitknu.github.io/0/models/3.glb" interpolationDecay="7500" style="display:inline-block;"></model-viewer>
 <model-viewer id="model-viewer4" src="https://gitknu.github.io/0/models/4.glb" interpolationDecay="7500" style="display:inline-block;"></model-viewer>
 <model-viewer id="model-viewer5" src="https://gitknu.github.io/0/models/5.glb" interpolationDecay="7500" style="display:inline-block;"></model-viewer>
 </div></span></div>
-    <div class="carousel__face" id="carousel__face_2"><span><h3>Animals</h3><p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries.</p><div class="model-viewer-wrapper">
+    <div class="carousel__face" id="carousel__face_2" id="model-viewer-wrapper_1"><span><h3>Animals</h3><p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries.</p>
+    <div class="model-viewer-wrapper" id="model-viewer-wrapper_2">
 <model-viewer id="model-viewer6" src="https://gitknu.github.io/0/models/6.glb" interpolationDecay="7500" style="display:inline-block;"></model-viewer>
 <model-viewer id="model-viewer7" src="https://gitknu.github.io/0/models/7.glb" interpolationDecay="7500" style="display:inline-block;"></model-viewer>
 <model-viewer id="model-viewer8" src="https://gitknu.github.io/0/models/8.glb" interpolationDecay="7500" style="display:inline-block;"></model-viewer>
@@ -161,8 +166,8 @@ background-color: black;
   const carouselFace8 = document.getElementById('carousel__face_8');
   const carouselFace9 = document.getElementById('carousel__face_9');
   const carouselFace10 = document.getElementById('carousel__face_10');
-  const modelViewer1 = document.getElementById('model-viewer1');
-
+  const modelViewerWr1 = document.getElementById('model-viewer-wrapper_1');
+  const modelViewerWr2 = document.getElementById('model-viewer-wrapper_2');
 
   let rotationAngle = 0;
   let rotationCount = 1;
@@ -192,6 +197,8 @@ background-color: black;
       carouselFace9.style.opacity = 0;
       carouselFace10.style.transition = 'opacity 0.75s ease';
       carouselFace10.style.opacity = 0.2;
+      modelViewerWr1.style.display = "block";
+      modelViewerWr2.style.display = "none";
     } else if (rotationCount === 2) {
       carouselFace1.style.transition = 'opacity 0.75s ease';
       carouselFace1.style.opacity = 0.2;
@@ -207,6 +214,8 @@ background-color: black;
       carouselFace9.style.opacity = 0;
       carouselFace10.style.transition = 'opacity 0.75s ease';
       carouselFace10.style.opacity = 0;
+      modelViewerWr1.style.display = "none";
+      modelViewerWr2.style.display = "block";
     } else if (rotationCount === 3) {
       carouselFace1.style.transition = 'opacity 0.75s ease';
       carouselFace1.style.opacity = 0;
@@ -222,6 +231,7 @@ background-color: black;
       carouselFace8.style.opacity = 0;
       carouselFace9.style.opacity = 0;
       carouselFace10.style.opacity = 0;
+      modelViewerWr2.style.display = "none";
     } else if (rotationCount === 4) {
       carouselFace1.style.opacity = 0;
       carouselFace1.style.transition = 'opacity 0.75s ease';
