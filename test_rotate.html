@@ -35,7 +35,7 @@ body {
   width: 100%;
   height: 100%;
   transform-style: preserve-3d; 
-  animation: rotate360 360s infinite forwards linear;
+  transition: transform 2.1s ease;
 }
 .carousel__face { 
   border-radius:20px;
@@ -113,6 +113,19 @@ background-color: white;
     <div class="carousel__face"><span>Woow</span></div>
   </div>
 </div>
+<script>
+  const carousel = document.querySelector('.carousel');
+  let rotationAngle = 0;
+  function rotateCarousel() {
+    rotationAngle -= 40; // Decrease the rotation angle by 40 degrees
+    carousel.style.transform = `rotateY(${rotationAngle}deg)`;
+  }
+  rotateCarousel();
+  function startRotation() {
+    setInterval(rotateCarousel, 4000);
+  }
+  startRotation();
+</script>
 <script>
    (() => {
         const modelViewers = [document.getElementById('model-viewer1'), document.getElementById('model-viewer2'), document.getElementById('model-viewer3'), document.getElementById('model-viewer4'), document.getElementById('model-viewer5')];
