@@ -154,6 +154,8 @@ background-color: black;
   const carouselFace7 = document.getElementById('carousel__face_7');
   const carouselFace8 = document.getElementById('carousel__face_8');
   const carouselFace9 = document.getElementById('carousel__face_9');
+  const modelViewer1 = document.getElementById('model-viewer1');
+
 
   let rotationAngle = 0;
   let rotationCount = 1;
@@ -168,17 +170,7 @@ background-color: black;
     rotationCount++;
     rotationCountDisplay.textContent = `Rotation Count: ${rotationCount}`;
     
-    if (rotationCount === 0) {
-      carouselFace1.style.opacity = 1;
-      carouselFace2.style.opacity = 0;
-      carouselFace3.style.opacity = 0;
-      carouselFace4.style.opacity = 0;
-      carouselFace5.style.opacity = 0;
-      carouselFace6.style.opacity = 0;
-      carouselFace7.style.opacity = 0;
-      carouselFace8.style.opacity = 0;
-      carouselFace9.style.opacity = 0;
-    } else if (rotationCount === 1) {
+    if (rotationCount === 1) {
       carouselFace1.style.transition = 'opacity 0.75s ease';
       carouselFace1.style.opacity = 1;
       carouselFace2.style.transition = 'opacity 0.75s ease';
