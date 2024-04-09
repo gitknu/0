@@ -113,18 +113,40 @@ background-color: white;
     <div class="carousel__face"><span>Woow</span></div>
   </div>
 </div>
+<button id="rotateButton">Rotate</button>
 <script>
   const carousel = document.querySelector('.carousel');
+  const rotateButton = document.getElementById('rotateButton');
   let rotationAngle = 0;
+  let rotationInterval;
+
   function rotateCarousel() {
-    rotationAngle -= 40; // Decrease the rotation angle by 40 degrees
+    rotationAngle -= 40;
     carousel.style.transform = `rotateY(${rotationAngle}deg)`;
   }
-  rotateCarousel();
+
   function startRotation() {
-    setInterval(rotateCarousel, 4000);
+    rotationInterval = setInterval(rotateCarousel, 7000);
   }
-  startRotation();
+
+  function stopRotation() {
+    clearInterval(rotationInterval);
+  }
+
+  function startOrResetRotationTimer() {
+    clearTimeout(startOrResetRotationTimer.timer);
+    startOrResetRotationTimer.timer = setTimeout(startRotation, 10000);
+  }
+
+  rotateButton.addEventListener('click', () => {
+    stopRotation();
+    rotateCarousel(); 
+    startOrResetRotationTimer();
+  });
+
+  carousel.addEventListener('click', startOrResetRotationTimer);
+
+  startRotation(); 
 </script>
 <script>
    (() => {
