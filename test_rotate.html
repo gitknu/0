@@ -62,7 +62,7 @@ font-family: "Montserrat Alternates", sans-serif;
   display: flex;
   opacity: 0;
 }
-#carousel__face_9, #carousel__face_2 {
+#carousel__face_10, #carousel__face_2 {
       opacity: 0.2;
       }
 #carousel__face_1 {
@@ -78,32 +78,35 @@ span {
 }
 .carousel__face:nth-child(1) {
   background-color: red;
-  transform: rotateY(0deg) translateZ(430px); }
+  transform: rotateY(0deg) translateZ(500px); }
 .carousel__face:nth-child(2) { 
 background-color: yellow;
-    transform: rotateY(40deg) translateZ(430px); }
+    transform: rotateY(36deg) translateZ(500px); }
 .carousel__face:nth-child(3) {
 background-color: green;
-  transform: rotateY(80deg) translateZ(430px); }
+  transform: rotateY(72deg) translateZ(500px); }
 .carousel__face:nth-child(4) {
 background-color: blue;
-  transform: rotateY(120deg) translateZ(430px); }
+  transform: rotateY(108deg) translateZ(500px); }
 .carousel__face:nth-child(5) { 
 background-color: purple;
- transform: rotateY(160deg) translateZ(430px); }
+ transform: rotateY(144deg) translateZ(500px); }
 .carousel__face:nth-child(6) { 
 background-color: black;
- transform: rotateY(200deg) translateZ(430px); }
+ transform: rotateY(180deg) translateZ(500px); }
 .carousel__face:nth-child(7) { 
 background-color: black;
- transform: rotateY(240deg) translateZ(430px); }
+ transform: rotateY(216deg) translateZ(500px); }
 .carousel__face:nth-child(8) {
 background-color: black;
-  transform: rotateY(280deg) translateZ(430px); }
+  transform: rotateY(252deg) translateZ(500px); }
 .carousel__face:nth-child(9) {
   background-image: url("https://images.pexels.com/photos/1175135/pexels-photo-1175135.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260");
-  transform: rotateY(320deg) translateZ(430px); }
-
+  transform: rotateY(288deg) translateZ(500px); }
+.carousel__face:nth-child(10) {
+background-color: black;
+  transform: rotateY(324deg) translateZ(500px); }
+  
 @keyframes rotate360 {
   from {
     transform: rotateY(0deg);
@@ -137,7 +140,8 @@ background-color: black;
     <div class="carousel__face" id="carousel__face_6"><span>A try</span></div>
     <div class="carousel__face" id="carousel__face_7"><span>And see</span></div>
     <div class="carousel__face" id="carousel__face_8"><span>How IT Works</span></div>
-    <div class="carousel__face" id="carousel__face_9"><span>Woow</span></div>
+    <div class="carousel__face" id="carousel__face_9"><span>Woow 1</span></div>
+    <div class="carousel__face" id="carousel__face_10"><span>Woow 2</span></div>
   </div>
     <button id="rotateButton">Rotate</button>
     <span id="rotationCountDisplay" style="color: black">Rotation Count: 0</span>
@@ -155,6 +159,7 @@ background-color: black;
   const carouselFace7 = document.getElementById('carousel__face_7');
   const carouselFace8 = document.getElementById('carousel__face_8');
   const carouselFace9 = document.getElementById('carousel__face_9');
+  const carouselFace10 = document.getElementById('carousel__face_10');
   const modelViewer1 = document.getElementById('model-viewer1');
 
 
@@ -163,7 +168,7 @@ background-color: black;
   let rotationInterval;
 
   function rotateCarousel() {
-    rotationAngle -= 40;
+    rotationAngle -= 36;
     carousel.style.transform = `rotateY(${rotationAngle}deg)`;
     if (rotationAngle % 360 === 0 && Number.isInteger(rotationAngle / 360)) {
       rotationCount = 0; 
@@ -183,7 +188,9 @@ background-color: black;
       carouselFace7.style.opacity = 0;
       carouselFace8.style.opacity = 0;
       carouselFace9.style.transition = 'opacity 0.75s ease';
-      carouselFace9.style.opacity = 0.2;
+      carouselFace9.style.opacity = 0;
+      carouselFace10.style.transition = 'opacity 0.75s ease';
+      carouselFace10.style.opacity = 0.2;
     } else if (rotationCount === 2) {
       carouselFace1.style.transition = 'opacity 0.75s ease';
       carouselFace1.style.opacity = 0.2;
@@ -197,6 +204,8 @@ background-color: black;
       carouselFace7.style.opacity = 0;
       carouselFace8.style.opacity = 0;
       carouselFace9.style.opacity = 0;
+      carouselFace10.style.transition = 'opacity 0.75s ease';
+      carouselFace10.style.opacity = 0;
     } else if (rotationCount === 3) {
       carouselFace1.style.transition = 'opacity 0.75s ease';
       carouselFace1.style.opacity = 0;
@@ -211,6 +220,7 @@ background-color: black;
       carouselFace7.style.opacity = 0;
       carouselFace8.style.opacity = 0;
       carouselFace9.style.opacity = 0;
+      carouselFace10.style.opacity = 0;
     } else if (rotationCount === 4) {
       carouselFace1.style.opacity = 0;
       carouselFace2.style.opacity = 0;
@@ -224,6 +234,7 @@ background-color: black;
       carouselFace7.style.opacity = 0;
       carouselFace8.style.opacity = 0;
       carouselFace9.style.opacity = 0;
+      carouselFace10.style.opacity = 0;
     } else if (rotationCount === 5) {
       carouselFace1.style.opacity = 0;
       carouselFace2.style.opacity = 0;
@@ -238,6 +249,7 @@ background-color: black;
       carouselFace7.style.opacity = 0;
       carouselFace8.style.opacity = 0;
       carouselFace9.style.opacity = 0;
+      carouselFace10.style.opacity = 0;
     } else if (rotationCount === 6) {
       carouselFace1.style.opacity = 0;
       carouselFace2.style.opacity = 0;
@@ -251,6 +263,7 @@ background-color: black;
       carouselFace7.style.opacity = 0.2;
       carouselFace8.style.opacity = 0;
       carouselFace9.style.opacity = 0;
+      carouselFace10.style.opacity = 0;
     } else if (rotationCount === 7) {
       carouselFace1.style.opacity = 0;
       carouselFace2.style.opacity = 0;
@@ -264,6 +277,7 @@ background-color: black;
       carouselFace8.style.transition = 'opacity 0.75s ease';
       carouselFace8.style.opacity = 0.2;
       carouselFace9.style.opacity = 0;
+      carouselFace10.style.opacity = 0;
     } else if (rotationCount === 8) {
       carouselFace1.style.opacity = 0;
       carouselFace2.style.opacity = 0;
@@ -277,9 +291,9 @@ background-color: black;
       carouselFace8.style.opacity = 1;
       carouselFace9.style.transition = 'opacity 0.75s ease';
       carouselFace9.style.opacity = 0.2;
+      carouselFace10.style.opacity = 0;
     } else if (rotationCount === 9) {
-      carouselFace1.style.transition = 'opacity 0.75s ease';
-      carouselFace1.style.opacity = 0.2;
+      carouselFace1.style.opacity = 0;
       carouselFace2.style.opacity = 0;
       carouselFace3.style.opacity = 0;
       carouselFace4.style.opacity = 0;
@@ -290,6 +304,23 @@ background-color: black;
       carouselFace8.style.opacity = 0.2;
       carouselFace9.style.transition = 'opacity 0.75s ease';
       carouselFace9.style.opacity = 1;
+      carouselFace10.style.transition = 'opacity 0.75s ease';
+      carouselFace10.style.opacity = 0.2;
+    } else if (rotationCount === 10) {
+      carouselFace1.style.transition = 'opacity 0.75s ease';
+      carouselFace1.style.opacity = 0.2;
+      carouselFace2.style.opacity = 0;
+      carouselFace3.style.opacity = 0;
+      carouselFace4.style.opacity = 0;
+      carouselFace5.style.opacity = 0;
+      carouselFace6.style.opacity = 0;
+      carouselFace7.style.opacity = 0;
+      carouselFace8.style.transition = 'opacity 0.75s ease';
+      carouselFace8.style.opacity = 0;
+      carouselFace9.style.transition = 'opacity 0.75s ease';
+      carouselFace9.style.opacity = 0.2;
+      carouselFace10.style.transition = 'opacity 0.75s ease';
+      carouselFace10.style.opacity = 1;
     } else { 
       
     }
