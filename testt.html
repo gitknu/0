@@ -184,6 +184,41 @@ background-color: #FDB0C0;
 <model-viewer id="model-viewer24" src="https://gitknu.github.io/0/models/24.glb" interpolationDecay="7500" style="display:inline-block;"></model-viewer>
 <model-viewer id="model-viewer25" src="https://gitknu.github.io/0/models/25.glb" interpolationDecay="7500" style="display:inline-block;"></model-viewer>
 </div>
+<div class="model-viewer-wrapper" id="model-viewer-wrapper_6">
+<model-viewer id="model-viewer26" src="https://gitknu.github.io/0/models/26.glb" interpolationDecay="7500" style="display:inline-block;"></model-viewer>
+<model-viewer id="model-viewer27" src="https://gitknu.github.io/0/models/27.glb" interpolationDecay="7500" style="display:inline-block;"></model-viewer>
+<model-viewer id="model-viewer28" src="https://gitknu.github.io/0/models/28.glb" interpolationDecay="7500" style="display:inline-block;"></model-viewer>
+<model-viewer id="model-viewer29" src="https://gitknu.github.io/0/models/29.glb" interpolationDecay="7500" style="display:inline-block;"></model-viewer>
+<model-viewer id="model-viewer30" src="https://gitknu.github.io/0/models/30.glb" interpolationDecay="7500" style="display:inline-block;"></model-viewer>
+</div>
+<div class="model-viewer-wrapper" id="model-viewer-wrapper_7">
+<model-viewer id="model-viewer31" src="https://gitknu.github.io/0/models/31.glb" interpolationDecay="7500" style="display:inline-block;"></model-viewer>
+<model-viewer id="model-viewer32" src="https://gitknu.github.io/0/models/32.glb" interpolationDecay="7500" style="display:inline-block;"></model-viewer>
+<model-viewer id="model-viewer33" src="https://gitknu.github.io/0/models/33.glb" interpolationDecay="7500" style="display:inline-block;"></model-viewer>
+<model-viewer id="model-viewer34" src="https://gitknu.github.io/0/models/34.glb" interpolationDecay="7500" style="display:inline-block;"></model-viewer>
+<model-viewer id="model-viewer35" src="https://gitknu.github.io/0/models/35.glb" interpolationDecay="7500" style="display:inline-block;"></model-viewer>
+</div>
+<div class="model-viewer-wrapper" id="model-viewer-wrapper_8">
+<model-viewer id="model-viewer36" src="https://gitknu.github.io/0/models/36.glb" interpolationDecay="7500" style="display:inline-block;"></model-viewer>
+<model-viewer id="model-viewer37" src="https://gitknu.github.io/0/models/37.glb" interpolationDecay="7500" style="display:inline-block;"></model-viewer>
+<model-viewer id="model-viewer38" src="https://gitknu.github.io/0/models/38.glb" interpolationDecay="7500" style="display:inline-block;"></model-viewer>
+<model-viewer id="model-viewer39" src="https://gitknu.github.io/0/models/39.glb" interpolationDecay="7500" style="display:inline-block;"></model-viewer>
+<model-viewer id="model-viewer40" src="https://gitknu.github.io/0/models/40.glb" interpolationDecay="7500" style="display:inline-block;"></model-viewer>
+</div>
+<div class="model-viewer-wrapper" id="model-viewer-wrapper_9">
+<model-viewer id="model-viewer41" src="https://gitknu.github.io/0/models/41.glb" interpolationDecay="7500" style="display:inline-block;"></model-viewer>
+<model-viewer id="model-viewer42" src="https://gitknu.github.io/0/models/42.glb" interpolationDecay="7500" style="display:inline-block;"></model-viewer>
+<model-viewer id="model-viewer43" src="https://gitknu.github.io/0/models/43.glb" interpolationDecay="7500" style="display:inline-block;"></model-viewer>
+<model-viewer id="model-viewer44" src="https://gitknu.github.io/0/models/44.glb" interpolationDecay="7500" style="display:inline-block;"></model-viewer>
+<model-viewer id="model-viewer45" src="https://gitknu.github.io/0/models/45.glb" interpolationDecay="7500" style="display:inline-block;"></model-viewer>
+</div>
+<div class="model-viewer-wrapper" id="model-viewer-wrapper_10">
+<model-viewer id="model-viewer46" src="https://gitknu.github.io/0/models/46.glb" interpolationDecay="7500" style="display:inline-block;"></model-viewer>
+<model-viewer id="model-viewer47" src="https://gitknu.github.io/0/models/47.glb" interpolationDecay="7500" style="display:inline-block;"></model-viewer>
+<model-viewer id="model-viewer48" src="https://gitknu.github.io/0/models/48.glb" interpolationDecay="7500" style="display:inline-block;"></model-viewer>
+<model-viewer id="model-viewer49" src="https://gitknu.github.io/0/models/49.glb" interpolationDecay="7500" style="display:inline-block;"></model-viewer>
+<model-viewer id="model-viewer50" src="https://gitknu.github.io/0/models/50.glb" interpolationDecay="7500" style="display:inline-block;"></model-viewer>
+</div>
 </div>
 <script>
   const carousel = document.querySelector('.carousel');
@@ -204,7 +239,12 @@ background-color: #FDB0C0;
   const modelViewerWr3 = document.getElementById('model-viewer-wrapper_3');
   const modelViewerWr4 = document.getElementById('model-viewer-wrapper_4');
   const modelViewerWr5 = document.getElementById('model-viewer-wrapper_5');
-
+  const modelViewerWr6 = document.getElementById('model-viewer-wrapper_6');
+  const modelViewerWr7 = document.getElementById('model-viewer-wrapper_7');
+  const modelViewerWr8 = document.getElementById('model-viewer-wrapper_8');
+  const modelViewerWr9 = document.getElementById('model-viewer-wrapper_9');
+  const modelViewerWr10 = document.getElementById('model-viewer-wrapper_10');
+  
   let rotationAngle = 0;
   let rotationCount = 1;
   let rotationInterval;
@@ -238,6 +278,11 @@ background-color: #FDB0C0;
       modelViewerWr3.style.display = "none";
       modelViewerWr4.style.display = "none";
       modelViewerWr5.style.display = "none";
+      modelViewerWr6.style.display = "none";
+      modelViewerWr7.style.display = "none";
+      modelViewerWr8.style.display = "none";
+      modelViewerWr9.style.display = "none";
+      modelViewerWr10.style.display = "none";
     } else if (rotationCount === 2) {
       carouselFace1.style.transition = 'opacity 0.75s ease';
       carouselFace1.style.opacity = 0.4;
@@ -258,6 +303,11 @@ background-color: #FDB0C0;
       modelViewerWr3.style.display = "none";
       modelViewerWr4.style.display = "none";
       modelViewerWr5.style.display = "none";
+      modelViewerWr6.style.display = "none";
+      modelViewerWr7.style.display = "none";
+      modelViewerWr8.style.display = "none";
+      modelViewerWr9.style.display = "none";
+      modelViewerWr10.style.display = "none";
     } else if (rotationCount === 3) {
       carouselFace1.style.transition = 'opacity 0.75s ease';
       carouselFace1.style.opacity = 0;
@@ -278,6 +328,11 @@ background-color: #FDB0C0;
       modelViewerWr3.style.display = "block";
       modelViewerWr4.style.display = "none";
       modelViewerWr5.style.display = "none";
+      modelViewerWr6.style.display = "none";
+      modelViewerWr7.style.display = "none";
+      modelViewerWr8.style.display = "none";
+      modelViewerWr9.style.display = "none";
+      modelViewerWr10.style.display = "none";
     } else if (rotationCount === 4) {
       carouselFace1.style.opacity = 0;
       carouselFace1.style.transition = 'opacity 0.75s ease';
@@ -298,6 +353,11 @@ background-color: #FDB0C0;
       modelViewerWr3.style.display = "none";
       modelViewerWr4.style.display = "block";
       modelViewerWr5.style.display = "none";
+      modelViewerWr6.style.display = "none";
+      modelViewerWr7.style.display = "none";
+      modelViewerWr8.style.display = "none";
+      modelViewerWr9.style.display = "none";
+      modelViewerWr10.style.display = "none";
     } else if (rotationCount === 5) {
       carouselFace1.style.opacity = 0;
       carouselFace2.style.opacity = 0;
@@ -318,6 +378,11 @@ background-color: #FDB0C0;
       modelViewerWr3.style.display = "none";
       modelViewerWr4.style.display = "none";
       modelViewerWr5.style.display = "block";
+      modelViewerWr6.style.display = "none";
+      modelViewerWr7.style.display = "none";
+      modelViewerWr8.style.display = "none";
+      modelViewerWr9.style.display = "none";
+      modelViewerWr10.style.display = "none";
     } else if (rotationCount === 6) {
       carouselFace1.style.opacity = 0;
       carouselFace2.style.opacity = 0;
@@ -333,6 +398,16 @@ background-color: #FDB0C0;
       carouselFace8.style.opacity = 0;
       carouselFace9.style.opacity = 0;
       carouselFace10.style.opacity = 0;
+      modelViewerWr1.style.display = "none";
+      modelViewerWr2.style.display = "none";
+      modelViewerWr3.style.display = "none";
+      modelViewerWr4.style.display = "none";
+      modelViewerWr5.style.display = "none";
+      modelViewerWr6.style.display = "block";
+      modelViewerWr7.style.display = "none";
+      modelViewerWr8.style.display = "none";
+      modelViewerWr9.style.display = "none";
+      modelViewerWr10.style.display = "none";
     } else if (rotationCount === 7) {
       carouselFace1.style.opacity = 0;
       carouselFace2.style.opacity = 0;
@@ -348,6 +423,16 @@ background-color: #FDB0C0;
       carouselFace8.style.opacity = 0.4;
       carouselFace9.style.opacity = 0;
       carouselFace10.style.opacity = 0;
+      modelViewerWr1.style.display = "none";
+      modelViewerWr2.style.display = "none";
+      modelViewerWr3.style.display = "none";
+      modelViewerWr4.style.display = "none";
+      modelViewerWr5.style.display = "none";
+      modelViewerWr6.style.display = "none";
+      modelViewerWr7.style.display = "block";
+      modelViewerWr8.style.display = "none";
+      modelViewerWr9.style.display = "none";
+      modelViewerWr10.style.display = "none";
     } else if (rotationCount === 8) {
       carouselFace1.style.opacity = 0;
       carouselFace2.style.opacity = 0;
@@ -363,6 +448,16 @@ background-color: #FDB0C0;
       carouselFace9.style.transition = 'opacity 0.75s ease';
       carouselFace9.style.opacity = 0.4;
       carouselFace10.style.opacity = 0;
+      modelViewerWr1.style.display = "none";
+      modelViewerWr2.style.display = "none";
+      modelViewerWr3.style.display = "none";
+      modelViewerWr4.style.display = "none";
+      modelViewerWr5.style.display = "none";
+      modelViewerWr6.style.display = "none";
+      modelViewerWr7.style.display = "none";
+      modelViewerWr8.style.display = "block";
+      modelViewerWr9.style.display = "none";
+      modelViewerWr10.style.display = "none";
     } else if (rotationCount === 9) {
       carouselFace1.style.opacity = 0;
       carouselFace2.style.opacity = 0;
@@ -378,6 +473,16 @@ background-color: #FDB0C0;
       carouselFace9.style.opacity = 1;
       carouselFace10.style.transition = 'opacity 0.75s ease';
       carouselFace10.style.opacity = 0.4;
+      modelViewerWr1.style.display = "none";
+      modelViewerWr2.style.display = "none";
+      modelViewerWr3.style.display = "none";
+      modelViewerWr4.style.display = "none";
+      modelViewerWr5.style.display = "none";
+      modelViewerWr6.style.display = "none";
+      modelViewerWr7.style.display = "none";
+      modelViewerWr8.style.display = "none";
+      modelViewerWr9.style.display = "block";
+      modelViewerWr10.style.display = "none";
     } else if (rotationCount === 10) {
       carouselFace1.style.transition = 'opacity 0.75s ease';
       carouselFace1.style.opacity = 0.4;
@@ -393,6 +498,16 @@ background-color: #FDB0C0;
       carouselFace9.style.opacity = 0.4;
       carouselFace10.style.transition = 'opacity 0.75s ease';
       carouselFace10.style.opacity = 1;
+      modelViewerWr1.style.display = "none";
+      modelViewerWr2.style.display = "none";
+      modelViewerWr3.style.display = "none";
+      modelViewerWr4.style.display = "none";
+      modelViewerWr5.style.display = "none";
+      modelViewerWr6.style.display = "none";
+      modelViewerWr7.style.display = "none";
+      modelViewerWr8.style.display = "none";
+      modelViewerWr9.style.display = "none";
+      modelViewerWr10.style.display = "block";
     } else { 
       
     }
@@ -424,7 +539,7 @@ background-color: #FDB0C0;
 
 <script>
 (() => {
-    const modelViewers = Array.from({ length: 25 }, (_, i) => document.getElementById(`model-viewer${i + 1}`));
+    const modelViewers = Array.from({ length: 50 }, (_, i) => document.getElementById(`model-viewer${i + 1}`));
     let isDragging = false;
     let startX, startY;
 
