@@ -1,4 +1,4 @@
-<html>
+=<html>
 <head>
     <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
     <style>
@@ -367,69 +367,49 @@ background-color: black;
 </script>
 
 <script>
-   (() => {
-        const modelViewers = [document.getElementById('model-viewer1'), document.getElementById('model-viewer2'), document.getElementById('model-viewer3'), document.getElementById('model-viewer4'), document.getElementById('model-viewer5'), document.getElementById('model-viewer6'), document.getElementById('model-viewer7'), document.getElementById('model-viewer8'), document.getElementById('model-viewer9'), document.getElementById('model-viewer10')
-        ];
-        let isDragging = false;
-        let startX, startY;
-        function startDrag(event) {
-            isDragging = true;
-            startX = event.clientX;
-            startY = event.clientY;
-            clearInterval(orbitInterval);
-        }
-        function drag(event) {
-            if (!isDragging) return;
-            const sensitivity = 0.5;
-            const deltaX = event.clientX - startX;
-            const deltaY = event.clientY - startY;
-            for (const modelViewer of modelViewers) {
-                const orbit = modelViewer.cameraOrbit;
-                const [yaw, pitch, radius] = orbit.split(' ');
-                const newYaw = parseFloat(yaw) + deltaX * sensitivity;
-                const newPitch = parseFloat(pitch) - deltaY * sensitivity;
-                modelViewer.cameraOrbit = `${newYaw}deg ${newPitch}deg ${radius}`;
-            }
-            startX = event.clientX;
-            startY = event.clientY;
-        }
-        function endDrag() {
-            isDragging = false;
-            // Restart the orbit interval after 7.5 seconds when dragging ends
-            setTimeout(() => {
-                orbitInterval = setInterval(() => {
-                    for (let i = 0; i < modelViewers.length; i++) {
-                        const currentOrbitIndex = orbitCycle.indexOf(modelViewers[i].cameraOrbit);
-                        modelViewers[i].cameraOrbit = orbitCycle[(currentOrbitIndex + 1) % orbitCycle.length];
-                    }
-                }, 6000);
-            }, 7500);
-        }
-        const orbitCycle = [
-            '45deg 75deg 12m',
-            '20deg 95deg 12m',
-            '-20deg 125deg 12m',
-            '-45deg 75deg 12m',
-            '-90deg 95deg 12m',
-            '90deg 95deg 12m',
-            '140deg 75deg 12m',
-            '-140deg 75deg 12m'
-        ];
-        // Start the initial orbit after 7.5 seconds
-        setTimeout(() => {
-            orbitInterval = setInterval(() => {
-                for (let i = 0; i < modelViewers.length; i++) {
-                    const currentOrbitIndex = orbitCycle.indexOf(modelViewers[i].cameraOrbit);
-                    modelViewers[i].cameraOrbit = orbitCycle[(currentOrbitIndex + 1) % orbitCycle.length];
-                }
-            }, 6000);
-        }, 7500);
+(() => {
+    const modelViewers = [
+        document.getElementById('model-viewer1'),
+        document.getElementById('model-viewer2'),
+        document.getElementById('model-viewer3'),
+        document.getElementById('model-viewer4'),
+        document.getElementById('model-viewer5'),
+        document.getElementById('model-viewer6'),
+        document.getElementById('model-viewer7'),
+        document.getElementById('model-viewer8'),
+        document.getElementById('model-viewer9'),
+        document.getElementById('model-viewer10')
+    ];
+    let isDragging = false;
+    let startX, startY;
+
+    function startDrag(event) {
+        isDragging = true;
+        startX = event.clientX;
+        startY = event.clientY;
+        clearInterval(orbitInterval);
+    }
+
+    function drag(event) {
+        if (!isDragging) return;
+        const sensitivity = 0.2;
+        const deltaX = event.clientX - startX;
+        const deltaY = event.clientY - startY;
         for (const modelViewer of modelViewers) {
-            modelViewer.addEventListener('mousedown', startDrag);
-            modelViewer.addEventListener('mousemove', drag);
-            modelViewer.addEventListener('mouseup', endDrag);
+            const orbit = modelViewer.cameraOrbit;
+            const [yaw, pitch, radius] = orbit.split(' ');
+            const newYaw = parseFloat(yaw) + deltaX * sensitivity;
+            const newPitch = parseFloat(pitch) - deltaY * sensitivity;
+            modelViewer.cameraOrbit = `${newYaw}deg ${newPitch}deg ${radius}`;
         }
-    })();
+        startX = event.clientX;
+        startY = event.clientY;
+    }
+
+    document.addEventListener('mousemove', drag);
+    document.addEventListener('mousedown', startDrag);
+    document.addEventListener('mouseup', endDrag);
+})();
 </script>
 </body>
 </html>
