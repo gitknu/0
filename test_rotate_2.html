@@ -16,12 +16,21 @@ model-viewer {
 #model-viewer-wrapper_1 {
     display: block;
 }
+
+#carousel_and_models {
+    width: 100%;
+    height: 50%;
+    background-color: blue;
+}
+
 .model-viewer-wrapper {
     position: relative;
     display: none;
- margin: 0 auto; /* Center horizontally */
-    text-align: center; /* Center inline children */
+ margin: 0 auto; 
+    text-align: center;
+
 }
+
 body {
   margin: 0;
 font-family: "Montserrat Alternates", sans-serif;
@@ -122,6 +131,7 @@ background-color: black;
     </style>
     </head>
 <body>
+    <div id="carousel_and_models">
 <div class="container">
   <div class="carousel">
     <div class="carousel__face" id="carousel__face_1"><span><h3>Animals</h3><p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries.</p></span></div>
@@ -152,6 +162,7 @@ background-color: black;
 <model-viewer id="model-viewer8" src="https://gitknu.github.io/0/models/8.glb" interpolationDecay="7500" style="display:inline-block;"></model-viewer>
 <model-viewer id="model-viewer9" src="https://gitknu.github.io/0/models/9.glb" interpolationDecay="7500" style="display:inline-block;"></model-viewer>
 <model-viewer id="model-viewer10" src="https://gitknu.github.io/0/models/10.glb" interpolationDecay="7500" style="display:inline-block;"></model-viewer>
+</div>
 </div>
 <script>
   const carousel = document.querySelector('.carousel');
