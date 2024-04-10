@@ -82,14 +82,74 @@ span {
   font-size: 9px;
 }
 #rotateButton {
-    position: relative;
   display: inline-block;
   height: 60px;
   margin: 1px 0;
   padding: 2px 0 0 5px;
+  background: -webkit-linear-gradient(
+    left,
+    #ccc 0%,
+    #d8d8d8 20px,
+    #e5e5e5 35px,
+    #fafafa 100%
+  );
+  background: -moz-linear-gradient(
+    left,
+    #ccc 0%,
+    #d8d8d8 20px,
+    #e5e5e5 35px,
+    #fafafa 100%
+  );
+  width: 120px;
+  border: 6px solid transparent;
+  border-width: 5px 5px 8px 6px;
+  border-image: -moz-linear-gradient(
+      top,
+      #999 0%,
+      #bbb 45%,
+      #bbb 55%,
+      #ccc 95%,
+      #ddd 100%
+    )
+    49%;
+  border-image: -webkit-linear-gradient(
+      top,
+      #999 0%,
+      #bbb 45%,
+      #bbb 55%,
+      #ccc 95%,
+      #ddd 100%
+    )
+    49%;
+  box-shadow: 3px -5px 6px rgba(100, 100, 100, 0.6),
+    -4px -4px 6px rgba(100, 100, 100, 0.4),
+    4px -2px 5px rgba(100, 100, 100, 0.5);
+  box-sizing: border-box;
+  cursor: pointer;
   position: relative;
   top: 500px;
 }
+
+#rotateButton:active {
+  background: -moz-linear-gradient(
+    left,
+    #c8c8c8 0%,
+    #d8d8d8 20px,
+    #e5e5e5 35px,
+    #fafafa 100%
+  );
+  background: -webkit-linear-gradient(
+    left,
+    #c8c8c8 0%,
+    #d8d8d8 20px,
+    #e5e5e5 35px,
+    #fafafa 100%
+  );
+  box-shadow: 1px -3px 6px rgba(100, 100, 100, 0.6),
+    -3px -3px 6px rgba(100, 100, 100, 0.3),
+    4px -2px 6px rgba(100, 100, 100, 0.3);
+}
+
 .carousel__face {
   background-color: #FDB0C0;
 }
@@ -122,7 +182,7 @@ span {
     <div class="carousel__face" id="carousel__face_9"><span><h3>Щось ще ???</h3><p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries.</p></span></div>
     <div class="carousel__face" id="carousel__face_10"><span><h3>Щось ще ????</h3><p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries.</p></span></div>
   </div>
-    <button id="rotateButton">Rotate</button>
+    <div id="rotateButton" style="color: black;">Rotate</div>
     <span id="rotationCountDisplay" style="color: black">Rotation Count: 0</span>
 </div>
  <script>
