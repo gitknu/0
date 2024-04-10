@@ -163,6 +163,27 @@ background-color: #FDB0C0;
 <model-viewer id="model-viewer9" src="https://gitknu.github.io/0/models/9.glb" interpolationDecay="7500" style="display:inline-block;"></model-viewer>
 <model-viewer id="model-viewer10" src="https://gitknu.github.io/0/models/10.glb" interpolationDecay="7500" style="display:inline-block;"></model-viewer>
 </div>
+<div class="model-viewer-wrapper" id="model-viewer-wrapper_3">
+<model-viewer id="model-viewer11" src="https://gitknu.github.io/0/models/11.glb" interpolationDecay="7500" style="display:inline-block;"></model-viewer>
+<model-viewer id="model-viewer12" src="https://gitknu.github.io/0/models/12.glb" interpolationDecay="7500" style="display:inline-block;"></model-viewer>
+<model-viewer id="model-viewer13" src="https://gitknu.github.io/0/models/13.glb" interpolationDecay="7500" style="display:inline-block;"></model-viewer>
+<model-viewer id="model-viewer14" src="https://gitknu.github.io/0/models/14.glb" interpolationDecay="7500" style="display:inline-block;"></model-viewer>
+<model-viewer id="model-viewer15" src="https://gitknu.github.io/0/models/15.glb" interpolationDecay="7500" style="display:inline-block;"></model-viewer>
+</div>
+<div class="model-viewer-wrapper" id="model-viewer-wrapper_4">
+<model-viewer id="model-viewer16" src="https://gitknu.github.io/0/models/16.glb" interpolationDecay="7500" style="display:inline-block;"></model-viewer>
+<model-viewer id="model-viewer17" src="https://gitknu.github.io/0/models/17.glb" interpolationDecay="7500" style="display:inline-block;"></model-viewer>
+<model-viewer id="model-viewer18" src="https://gitknu.github.io/0/models/18.glb" interpolationDecay="7500" style="display:inline-block;"></model-viewer>
+<model-viewer id="model-viewer19" src="https://gitknu.github.io/0/models/19.glb" interpolationDecay="7500" style="display:inline-block;"></model-viewer>
+<model-viewer id="model-viewer20" src="https://gitknu.github.io/0/models/20.glb" interpolationDecay="7500" style="display:inline-block;"></model-viewer>
+</div>
+<div class="model-viewer-wrapper" id="model-viewer-wrapper_5">
+<model-viewer id="model-viewer21" src="https://gitknu.github.io/0/models/21.glb" interpolationDecay="7500" style="display:inline-block;"></model-viewer>
+<model-viewer id="model-viewer22" src="https://gitknu.github.io/0/models/22.glb" interpolationDecay="7500" style="display:inline-block;"></model-viewer>
+<model-viewer id="model-viewer23" src="https://gitknu.github.io/0/models/23.glb" interpolationDecay="7500" style="display:inline-block;"></model-viewer>
+<model-viewer id="model-viewer24" src="https://gitknu.github.io/0/models/24.glb" interpolationDecay="7500" style="display:inline-block;"></model-viewer>
+<model-viewer id="model-viewer25" src="https://gitknu.github.io/0/models/25.glb" interpolationDecay="7500" style="display:inline-block;"></model-viewer>
+</div>
 </div>
 <script>
   const carousel = document.querySelector('.carousel');
@@ -180,6 +201,9 @@ background-color: #FDB0C0;
   const carouselFace10 = document.getElementById('carousel__face_10');
   const modelViewerWr1 = document.getElementById('model-viewer-wrapper_1');
   const modelViewerWr2 = document.getElementById('model-viewer-wrapper_2');
+  const modelViewerWr3 = document.getElementById('model-viewer-wrapper_3');
+  const modelViewerWr4 = document.getElementById('model-viewer-wrapper_4');
+  const modelViewerWr5 = document.getElementById('model-viewer-wrapper_5');
 
   let rotationAngle = 0;
   let rotationCount = 1;
@@ -211,6 +235,9 @@ background-color: #FDB0C0;
       carouselFace10.style.opacity = 0.4;
       modelViewerWr1.style.display = "block";
       modelViewerWr2.style.display = "none";
+      modelViewerWr3.style.display = "none";
+      modelViewerWr4.style.display = "none";
+      modelViewerWr5.style.display = "none";
     } else if (rotationCount === 2) {
       carouselFace1.style.transition = 'opacity 0.75s ease';
       carouselFace1.style.opacity = 0.4;
@@ -228,6 +255,9 @@ background-color: #FDB0C0;
       carouselFace10.style.opacity = 0;
       modelViewerWr1.style.display = "none";
       modelViewerWr2.style.display = "block";
+      modelViewerWr3.style.display = "none";
+      modelViewerWr4.style.display = "none";
+      modelViewerWr5.style.display = "none";
     } else if (rotationCount === 3) {
       carouselFace1.style.transition = 'opacity 0.75s ease';
       carouselFace1.style.opacity = 0;
@@ -243,7 +273,11 @@ background-color: #FDB0C0;
       carouselFace8.style.opacity = 0;
       carouselFace9.style.opacity = 0;
       carouselFace10.style.opacity = 0;
+      modelViewerWr1.style.display = "none";
       modelViewerWr2.style.display = "none";
+      modelViewerWr3.style.display = "block";
+      modelViewerWr4.style.display = "none";
+      modelViewerWr5.style.display = "none";
     } else if (rotationCount === 4) {
       carouselFace1.style.opacity = 0;
       carouselFace1.style.transition = 'opacity 0.75s ease';
@@ -259,6 +293,11 @@ background-color: #FDB0C0;
       carouselFace8.style.opacity = 0;
       carouselFace9.style.opacity = 0;
       carouselFace10.style.opacity = 0;
+      modelViewerWr1.style.display = "none";
+      modelViewerWr2.style.display = "none";
+      modelViewerWr3.style.display = "none";
+      modelViewerWr4.style.display = "block";
+      modelViewerWr5.style.display = "none";
     } else if (rotationCount === 5) {
       carouselFace1.style.opacity = 0;
       carouselFace2.style.opacity = 0;
@@ -274,6 +313,11 @@ background-color: #FDB0C0;
       carouselFace8.style.opacity = 0;
       carouselFace9.style.opacity = 0;
       carouselFace10.style.opacity = 0;
+      modelViewerWr1.style.display = "none";
+      modelViewerWr2.style.display = "none";
+      modelViewerWr3.style.display = "none";
+      modelViewerWr4.style.display = "none";
+      modelViewerWr5.style.display = "block";
     } else if (rotationCount === 6) {
       carouselFace1.style.opacity = 0;
       carouselFace2.style.opacity = 0;
@@ -380,18 +424,7 @@ background-color: #FDB0C0;
 
 <script>
 (() => {
-    const modelViewers = [
-        document.getElementById('model-viewer1'),
-        document.getElementById('model-viewer2'),
-        document.getElementById('model-viewer3'),
-        document.getElementById('model-viewer4'),
-        document.getElementById('model-viewer5'),
-        document.getElementById('model-viewer6'),
-        document.getElementById('model-viewer7'),
-        document.getElementById('model-viewer8'),
-        document.getElementById('model-viewer9'),
-        document.getElementById('model-viewer10')
-    ];
+    const modelViewers = Array.from({ length: 25 }, (_, i) => document.getElementById(`model-viewer${i + 1}`));
     let isDragging = false;
     let startX, startY;
 
