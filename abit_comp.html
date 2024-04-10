@@ -6,6 +6,7 @@
     
 model-viewer {
     display: block;
+    margin: 5px;
     border-radius: 50%;
     background: radial-gradient(circle, rgba(10, 10, 10, 0.5) 0%, rgba(0, 0, 0, 0.8) 50%, rgba(0, 0, 0, 1) 100%);
     touch-action: none;
@@ -89,62 +90,37 @@ span {
   position: relative;
   top: 500px;
 }
-.carousel__face:nth-child(1) {
+.carousel__face {
   background-color: #FDB0C0;
-  transform: rotateY(0deg) translateZ(500px); }
-.carousel__face:nth-child(2) { 
-background-color: #FDB0C0;
-    transform: rotateY(36deg) translateZ(500px); }
-.carousel__face:nth-child(3) {
-background-color: #FDB0C0;
-  transform: rotateY(72deg) translateZ(500px); }
-.carousel__face:nth-child(4) {
-background-color: #FDB0C0;
-  transform: rotateY(108deg) translateZ(500px); }
-.carousel__face:nth-child(5) { 
-background-color: #FDB0C0;
- transform: rotateY(144deg) translateZ(500px); }
-.carousel__face:nth-child(6) { 
-background-color: #FDB0C0;
- transform: rotateY(180deg) translateZ(500px); }
-.carousel__face:nth-child(7) { 
-background-color: #FDB0C0;
- transform: rotateY(216deg) translateZ(500px); }
-.carousel__face:nth-child(8) {
-background-color: #FDB0C0;
-  transform: rotateY(252deg) translateZ(500px); }
-.carousel__face:nth-child(9) {
-  background-image: url("https://images.pexels.com/photos/1175135/pexels-photo-1175135.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260");
-  transform: rotateY(288deg) translateZ(500px); }
-.carousel__face:nth-child(10) {
-background-color: #FDB0C0;
-  transform: rotateY(324deg) translateZ(500px); }
-  
-@keyframes rotate360 {
-  from {
-    transform: rotateY(0deg);
-  }
-  to {
-    transform: rotateY(-360deg);
-  }
 }
+
+.carousel__face:nth-child(1) { transform: rotateY(0deg) translateZ(500px); }
+.carousel__face:nth-child(2) { transform: rotateY(36deg) translateZ(500px); }
+.carousel__face:nth-child(3) { transform: rotateY(72deg) translateZ(500px); }
+.carousel__face:nth-child(4) { transform: rotateY(108deg) translateZ(500px); }
+.carousel__face:nth-child(5) { transform: rotateY(144deg) translateZ(500px); }
+.carousel__face:nth-child(6) { transform: rotateY(180deg) translateZ(500px); }
+.carousel__face:nth-child(7) { transform: rotateY(216deg) translateZ(500px); }
+.carousel__face:nth-child(8) { transform: rotateY(252deg) translateZ(500px); }
+.carousel__face:nth-child(9) { transform: rotateY(288deg) translateZ(500px); }
+.carousel__face:nth-child(10) { transform: rotateY(324deg) translateZ(500px); }
     </style>
     </head>
 <body>
     <div id="carousel_and_models">
 <div class="container">
   <div class="carousel">
-    <div class="carousel__face" id="carousel__face_1"><span><h3>Animals</h3><p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries.</p></span></div>
-    <div class="carousel__face" id="carousel__face_2"><span><h3>Animals</h3><p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries.</p>
+    <div class="carousel__face" id="carousel__face_1"><span><h3>Голови</h3><p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries.</p></span></div>
+    <div class="carousel__face" id="carousel__face_2"><span><h3>Риби</h3><p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries.</p>
    </span></div>
-    <div class="carousel__face" id="carousel__face_3"><span><h3>Animals</h3><p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries.</p></span></div>
-    <div class="carousel__face" id="carousel__face_4"><span><h3>Animals</h3><p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries.</p></span></div>
-    <div class="carousel__face" id="carousel__face_5"><span><h3>Animals</h3><p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries.</p></span></div>
-    <div class="carousel__face" id="carousel__face_6"><span><h3>Animals</h3><p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries.</p></span></div>
-    <div class="carousel__face" id="carousel__face_7"><span><h3>Animals</h3><p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries.</p></span></div>
-    <div class="carousel__face" id="carousel__face_8"><span><h3>Animals</h3><p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries.</p></span></div>
-    <div class="carousel__face" id="carousel__face_9"><span><h3>Animals</h3><p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries.</p></span></div>
-    <div class="carousel__face" id="carousel__face_10"><span><h3>Animals</h3><p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries.</p></span></div>
+    <div class="carousel__face" id="carousel__face_3"><span><h3>Великі тварини</h3><p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries.</p></span></div>
+    <div class="carousel__face" id="carousel__face_4"><span><h3>Маленьке літаюче</h3><p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries.</p></span></div>
+    <div class="carousel__face" id="carousel__face_5"><span><h3>Великі птахи</h3><p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries.</p></span></div>
+    <div class="carousel__face" id="carousel__face_6"><span><h3>Інше (море)</h3><p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries.</p></span></div>
+    <div class="carousel__face" id="carousel__face_7"><span><h3>Щось ще ?</h3><p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries.</p></span></div>
+    <div class="carousel__face" id="carousel__face_8"><span><h3>Щось ще ??</h3><p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries.</p></span></div>
+    <div class="carousel__face" id="carousel__face_9"><span><h3>Щось ще ???</h3><p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries.</p></span></div>
+    <div class="carousel__face" id="carousel__face_10"><span><h3>Щось ще ????</h3><p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries.</p></span></div>
   </div>
     <button id="rotateButton">Rotate</button>
     <span id="rotationCountDisplay" style="color: black">Rotation Count: 0</span>
