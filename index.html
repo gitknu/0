@@ -514,11 +514,20 @@ transform: translateY(1px); /* Move text down by 3px */
     startOrResetRotationTimer.timer = setTimeout(startRotation, 60000);
   }
 
-  rotateButton.addEventListener('click', () => {
-    stopRotation();
-    rotateCarousel();
-    startOrResetRotationTimer();
-  });
+let isButtonDisabled = false;
+
+rotateButton.addEventListener('click', () => {
+    if (!isButtonDisabled) {
+        stopRotation();
+        rotateCarousel();
+        startOrResetRotationTimer();
+        
+        isButtonDisabled = true;
+        setTimeout(() => {
+            isButtonDisabled = false;
+        }, 2000);
+    }
+});
 
   carousel.addEventListener('click', startOrResetRotationTimer);
   
