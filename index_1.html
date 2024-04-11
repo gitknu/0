@@ -186,7 +186,7 @@ transform: translateY(1px); /* Move text down by 3px */
     <div class="carousel__face" id="carousel__face_10"><span><h3>Щось ще ????</h3><p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries.</p></span></div>
   </div>
     <div id="rotateButton" style="color: #a19295; text-align: center; font-family: Arial;"><h2>Далі →</h2></div>
-    <span id="rotationCountDisplay" style="color: black">Rotation Count: 0</span>
+    <span id="rotationCountDisplay" style="color: black">0</span>
 </div>
  <script>
     function createModelViewer(idPrefix, start, end) {
@@ -244,7 +244,7 @@ transform: translateY(1px); /* Move text down by 3px */
       rotationCount = 0; 
     }
     rotationCount++;
-    rotationCountDisplay.textContent = `Rotation Count: ${rotationCount}`;
+    rotationCountDisplay.textContent = `${rotationCount}`;
     
     if (rotationCount === 1) {
       carouselFace1.style.transition = 'opacity 0.75s ease';
