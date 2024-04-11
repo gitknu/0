@@ -1,51 +1,6 @@
 <html>
   <head>
       <link rel="shortcut icon" href="https://uc.knu.ua/images/logo.png" width="32px">
-    <script>
-onload = function() {
-    var cv = document.querySelector('#cvl'),
-        ctx = cv.getContext('2d'),
-        tc, pct = 0,
-        lnk = document.querySelector('link[rel*="icon"]');
-    if (!!ctx) {
-        var C3qπ = 1.5 * Math.PI;
-        ctx.lineWidth = 5;
-        ctx.strokeStyle = '#b72026';
-        tc = setInterval(updateLoader, 5);
-    }
-    function updateLoader() {
-        if (!document.hidden) {
-            lnk.href = 'https://uc.knu.ua/images/logo.png';
-        } else {
-            with(ctx) {
-                clearRect(0, 0, 16, 16);
-                beginPath();
-                arc(8, 8, 6, C3qπ, (pct * 2 * Math.PI / 100 + C3qπ));
-                stroke();
-                fillStyle = 'white';
-                fill();
-            }
-            lnk.href = cv.toDataURL('image/png');
-            pct = (pct + 1) % 100;
-
-            if (pct === 0) {
-                clearInterval(tc);
-                setTimeout(function() {
-                    tc = setInterval(updateLoader, 5);
-                }, 1000);
-            }
-        }
-    }
-    document.addEventListener('visibilitychange', function() {
-        if (document.hidden) {
-            tc = setInterval(updateLoader, 5);  
-        } else {
-            clearInterval(tc);  
-            lnk.href = 'https://uc.knu.ua/images/logo.png';
-        }
-    });
-};
-    </script>
 <title>Gen.doc</title>
     <meta charset="UTF-8">
     <meta http-equiv="x-ua-compatible" content="IE=edge">
@@ -113,60 +68,6 @@ button {
 button:hover {
   box-shadow: 0 0 10px rgba(255, 255, 255, 1);
 }
-.unncsr {
-}
-.grid {
-  position: absolute;
-  z-index: -999;
-  flex: 0 0 auto;
-  perspective: 900px;
-  display: grid;
-  grid-template-columns: repeat(3, 100px);
-  grid-template-rows: repeat(3, 100px);
-  grid-gap: 20px;
-  max-width: 100px;
-  transform: rotate(45deg);
-}
-.grid div {
-  border-radius: 15%;
-  background-color: rgba(255, 255, 255, 0.35);
-  box-shadow: 30px 30px 30px -20px rgba(0, 0, 0, 0.35);
-  animation: 3000ms ease-in-out infinite alternate pulse;
-}
-.grid div:nth-child(even) {
-  animation-delay: 3000ms;
-}
-@keyframes pulse {
-  to {
-    transform: translate3d(0px, 0px, -60px);
-    box-shadow: 15px 15px 20px -20px rgba(black, 1);
-    background-color: rgba(255, 255, 255, 0.2);
-  }
-}
-.additional_div {
-    width: 450px;
-    height: 450px;
-    border-radius: 15%;
-    position: absolute;
-    top: 25px;
-    right: 25px;
-    z-index: -999;
-    flex: auto auto 0;
-   display: block;
-}
-    .hover_img {
-        position: absolute;
-        height: 100%;
-        width: 100%;
-    }
-    .hover_img img {
-        position: fixed;
-        opacity: 0;
-        height: 450px;
-        width: 450px;
-        border-radius: 15%;
-        box-shadow: 0 0 25px rgba(0, 0, 0, 0.5);
-    }
 @media screen and (max-width: 1025px) {
   .additional_div {
     width: 150px;
@@ -208,45 +109,6 @@ button:hover {
       .additional_div, #arg_num_img, #dday_start_img, #ddmon_start_img, #dday_end_img, #ddmon_end_img, #ddyr_end_img, #service_1_img, #postal_code_img, #name_advisor_img, #mobile_num_img, #city_name_img, #street_else_img, #tax_num_img, #bank_info_img, #unified_code_img, #client_person_rid_img, #client_person_img, #doc_reason_img, #prepay_img {
    display: none;
 }
-}
-.percent {
-  border: none;
-  background: none;
-  text-align: center;
-  pointer-events: none;
-  font-size: 0.6em;
-}
-.slider {
-  -webkit-appearance: none;
-  appearance: none;
-  background-color: white;
-  border-radius: 15px;
-  opacity: 35%;
-  width: 70%;
-}
-.slider::-webkit-slider-thumb {
-  -webkit-appearance: none;
-  appearance: none;
-  width: 20px;
-  height: 20px;
-  background-color: red;
-  border-radius: 50%;
-}
-.slider::-moz-range-thumb {
-  width: 20px;
-  height: 20px;
-  background-color: red;
-  border-radius: 50%;
-}
-::-webkit-scrollbar-thumb {
-  background: rgba(255, 255, 255, 0.3);
-  border-radius: 20px;
-}
-::-webkit-scrollbar-track {
-  background: linear-gradient(#ff8b66, #8e9e9e);
-}
-::-webkit-scrollbar {
-  width: 20px;
 }
 #up_button, #down_button {
     right:20px;
