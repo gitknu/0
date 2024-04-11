@@ -3,7 +3,27 @@
     <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
     <style>
     @import url('https://fonts.googleapis.com/css2?family=Montserrat+Alternates:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Yanone+Kaffeesatz:wght@200..700&display=swap');
-    
+ 
+ #up_button, #down_button {
+    right:20px;
+	width:70px;
+	height:70px;
+        text-decoration: none;
+	position:fixed;
+        opacity: 0.7;
+	background-color:pink;
+	color:black;
+	border-radius:50%;
+	text-align:center;
+	box-shadow: 2px 2px 3px #999;
+}
+#up_button {
+	bottom:100px;
+}
+#down_button {
+	bottom:20px;
+}
+
 model-viewer {
     display: block;
     margin: 5px;
@@ -170,6 +190,8 @@ transform: translateY(1px); /* Move text down by 3px */
     </style>
     </head>
 <body>
+    <a href="https://google.com" id="up_button" style="display: flex; justify-content: center; align-items: center;"> <h1>✎</h1> </a>
+    <a href="https://google.com" id="down_button"><h1>☎</h1></a>
     <div id="carousel_and_models">
 <div class="container">
   <div class="carousel">
