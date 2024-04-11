@@ -25,7 +25,7 @@ model-viewer {
     position: relative;
     display: none;
     text-align: center;
-    top: 250px;
+    top: 220px;
 }
 
 body {
@@ -84,7 +84,7 @@ span {
 #rotateButton {
   display: inline-block;
   height: 75px;
-  margin: 2px 0;
+  margin: 2px 75px;
   padding: 4px 0 0 10px;
   background: -webkit-linear-gradient(
     left,
@@ -186,7 +186,7 @@ transform: translateY(1px); /* Move text down by 3px */
     <div class="carousel__face" id="carousel__face_10"><span><h3>Щось ще ????</h3><p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries.</p></span></div>
   </div>
     <div id="rotateButton" style="color: #a19295; text-align: center; font-family: Arial;"><h2>Далі →</h2></div>
-    <span id="rotationCountDisplay" style="color: black">Rotation Count: 0</span>
+    <span id="rotationCountDisplay" style="color: black">0</span>
 </div>
  <script>
     function createModelViewer(idPrefix, start, end) {
@@ -232,11 +232,9 @@ transform: translateY(1px); /* Move text down by 3px */
   const modelViewerWr8 = document.getElementById('model-viewer-wrapper_8');
   const modelViewerWr9 = document.getElementById('model-viewer-wrapper_9');
   const modelViewerWr10 = document.getElementById('model-viewer-wrapper_10');
-  
   let rotationAngle = 0;
   let rotationCount = 1;
   let rotationInterval;
-
   function rotateCarousel() {
     rotationAngle -= 36;
     carousel.style.transform = `rotateY(${rotationAngle}deg)`;
@@ -244,8 +242,7 @@ transform: translateY(1px); /* Move text down by 3px */
       rotationCount = 0; 
     }
     rotationCount++;
-    rotationCountDisplay.textContent = `Rotation Count: ${rotationCount}`;
-    
+    rotationCountDisplay.textContent = `${rotationCount}`;
     if (rotationCount === 1) {
       carouselFace1.style.transition = 'opacity 0.75s ease';
       carouselFace1.style.opacity = 1;
@@ -500,61 +497,72 @@ transform: translateY(1px); /* Move text down by 3px */
       
     }
   }
-
   function startRotation() {
     rotationInterval = setInterval(rotateCarousel, 30000);
   }
-
   function stopRotation() {
     clearInterval(rotationInterval);
   }
-
   function startOrResetRotationTimer() {
     clearTimeout(startOrResetRotationTimer.timer);
     startOrResetRotationTimer.timer = setTimeout(startRotation, 60000);
   }
-
 let isButtonDisabled = false;
-
 rotateButton.addEventListener('click', () => {
     if (!isButtonDisabled) {
         stopRotation();
         rotateCarousel();
         startOrResetRotationTimer();
-        
+        const handleOpacityTransition = (wrapperId) => {
+            const modelViewerWrapper = document.getElementById(wrapperId);
+            modelViewerWrapper.style.opacity = '0';
+            setTimeout(() => {
+                modelViewerWrapper.style.transition = 'opacity 1.55s ease';
+                modelViewerWrapper.style.opacity = '1';
+            }, 2000);
+        };
+        handleOpacityTransition('model-viewer-wrapper_1');
+        handleOpacityTransition('model-viewer-wrapper_2');
+        handleOpacityTransition('model-viewer-wrapper_3');
+        handleOpacityTransition('model-viewer-wrapper_4');
+        handleOpacityTransition('model-viewer-wrapper_5');
+        handleOpacityTransition('model-viewer-wrapper_6');
+        handleOpacityTransition('model-viewer-wrapper_7');
+        handleOpacityTransition('model-viewer-wrapper_8');
+        handleOpacityTransition('model-viewer-wrapper_9');
+        handleOpacityTransition('model-viewer-wrapper_10');
         isButtonDisabled = true;
         setTimeout(() => {
             isButtonDisabled = false;
-        }, 2000);
+        }, 3500);
     }
 });
-
-  carousel.addEventListener('click', startOrResetRotationTimer);
-  
+carousel.addEventListener('click', startOrResetRotationTimer);
+let rotationAllowed = true;
 document.addEventListener('keydown', (event) => {
-    if (event.key === 'ArrowRight') {
+    if (event.key === 'ArrowRight' && rotationAllowed) {
         stopRotation();
         rotateCarousel();
         startOrResetRotationTimer();
+        rotationAllowed = false;
+        setTimeout(() => {
+            rotationAllowed = true;
+        }, 3500); 
     }
 });
-
   startRotation();
 </script>
-
 <script>
 (() => {
     const modelViewers = Array.from({ length: 50 }, (_, i) => document.getElementById(`model-viewer${i + 1}`));
     let isDragging = false;
     let startX, startY;
-
     function startDrag(event) {
         isDragging = true;
         startX = event.clientX;
         startY = event.clientY;
         clearInterval(orbitInterval);
     }
-
     function drag(event) {
         if (!isDragging) return;
         const sensitivity = 0.2;
@@ -570,7 +578,6 @@ document.addEventListener('keydown', (event) => {
         startX = event.clientX;
         startY = event.clientY;
     }
-
     document.addEventListener('mousemove', drag);
     document.addEventListener('mousedown', startDrag);
     document.addEventListener('mouseup', endDrag);
