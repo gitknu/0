@@ -236,6 +236,26 @@ transform: translateY(1px); /* Move text down by 3px */
   let rotationCount = 1;
   let rotationInterval;
   function rotateCarousel() {
+      
+      const handleOpacityTransition = (wrapperId) => {
+            const modelViewerWrapper = document.getElementById(wrapperId);
+            modelViewerWrapper.style.opacity = '0';
+            setTimeout(() => {
+                modelViewerWrapper.style.transition = 'opacity 1.55s ease';
+                modelViewerWrapper.style.opacity = '1';
+            }, 2000);
+        };
+        handleOpacityTransition('model-viewer-wrapper_1');
+        handleOpacityTransition('model-viewer-wrapper_2');
+        handleOpacityTransition('model-viewer-wrapper_3');
+        handleOpacityTransition('model-viewer-wrapper_4');
+        handleOpacityTransition('model-viewer-wrapper_5');
+        handleOpacityTransition('model-viewer-wrapper_6');
+        handleOpacityTransition('model-viewer-wrapper_7');
+        handleOpacityTransition('model-viewer-wrapper_8');
+        handleOpacityTransition('model-viewer-wrapper_9');
+        handleOpacityTransition('model-viewer-wrapper_10');
+        
     rotationAngle -= 36;
     carousel.style.transform = `rotateY(${rotationAngle}deg)`;
     if (rotationAngle % 360 === 0 && Number.isInteger(rotationAngle / 360)) {
