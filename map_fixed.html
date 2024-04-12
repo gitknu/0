@@ -2,17 +2,13 @@
 <html>
 <head>
   <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
-  <style>
-      .dcc.Dropdown {
-          display: none;
-      }
-  </style>
 </head>
 <body>
 
-<div id="myDiv" style="width: 100%; height: 100%;"></div>
+<div id="plotly_map" style="width: 100%; height: 100%;"></div>
 
 <script>
+
   var data = [
     {
       type: 'scattergeo',
@@ -39,15 +35,16 @@
       showcoastlines: true,
       showland: true,
       showocean:true,
-      oceancolor:"#c9d2e0",
+      oceancolor:'#c9d2e0',
       landcolor: '#74b370',
+      showlegend:false,
       projection: {
         type: 'orthographic'
       }
     }
   };
 
-  Plotly.newPlot('myDiv', data, layout);
+  Plotly.newPlot('plotly_map', data, layout);
 </script>
 
 </body>
