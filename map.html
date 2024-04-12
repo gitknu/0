@@ -12,19 +12,19 @@
     {
       type: 'scattergeo',
       locationmode: 'country names',
-      locations: ['USA', 'Russia', 'Brazil', 'Ukraine'],
+      locations: ['USA', 'Mongolia', 'Brazil', 'France', 'Ukraine', 'Australia', 'Antarctica', 'Central African Republic', 'Fiji'],
       hoverinfo: 'text',
-      text: ['USA', 'Євразія', 'Brazil', 'Ukraine'],
+      text: ['Північна Америка', 'Азія', 'Південна Америка','Europe', 'Україна', 'Австралія', 'Антарктика', 'Африка', 'Океанія'],
       mode: 'markers',
       marker: {
-        size: [20, 20, 20, 20],
-        color: [100, 90, 50, 75],
-        colorscale: 'Greens',
-        reversescale: true,
+        size: [10, 10, 10, 10, 10, 10, 10, 10, 10],
+        color: [100, 90, 50, 75, 90, 85, 90, 85, 97],
+        colorscale: 'Reds',
+        reversescale: false,
         colorbar: {
           title: 'Кількість'
         },
-        opacity: 0.75
+        opacity: 0.85
       }
     }
   ];
@@ -35,7 +35,7 @@
       showframe: false,
       showcoastlines: true,
       showland: true,
-      landcolor: 'orange',
+      landcolor: '#74b370',
       projection: {
         type: 'orthographic'
       }
