@@ -51,12 +51,6 @@ button {
   text-align: center;
   text-decoration: none;
   display: inline-block;
-  border-radius: 12px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0);
-  transition: box-shadow 0.75s ease-in-out;
-}
-button:hover {
-  box-shadow: 0 0 10px rgba(255, 255, 255, 1);
 }
 @media screen and (max-width: 1025px) {
   .additional_div {
@@ -89,7 +83,6 @@ button:hover {
     right:20px;
 	width:70px;
 	height:70px;
-        text-decoration: none;
 	position:fixed;
 	background-color:green;
 	text-align:center;
@@ -100,19 +93,14 @@ button:hover {
 #down_button {
 	bottom:20px;
 }
-.upsidedown {
-  display: inline-block;
-  -webkit-transform: rotateX(180deg);
-  transform: rotateX(180deg); 
-}
 </style>
   </head>
   <body>
 <a href="#top" id="up_button" style="display: flex; justify-content: center; align-items: center;">
-<h1><span style="color: red;">🛆</span></h1>
+<h1><span>🛆</span></h1>
 </a>
 <a href="#down" id="down_button">
-<h1><span class="upsidedown" style="color: red;">🛆</span></h1>
+<h1><span class="upsidedown">🛆</span></h1>
 </a>
   </body>
 </html>
