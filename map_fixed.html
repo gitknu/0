@@ -2,6 +2,11 @@
 <html>
 <head>
   <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+  <style>
+      .dcc.Dropdown {
+          display: none;
+      }
+  </style>
 </head>
 <body>
 
@@ -14,15 +19,14 @@
       locationmode: 'country names',
       locations: ['USA', 'Mongolia', 'Brazil', 'France', 'Ukraine', 'Australia', 'Antarctica', 'Central African Republic', 'Fiji'],
       hoverinfo: 'text',
-      text: ['Північна Америка', 'Азія', 'Південна Америка','Europe', 'Україна', 'Австралія', 'Антарктика', 'Африка', 'Океанія'],
-      mode: 'markers+text',
+      text: ['<b>Пн. Америка</b><br><i>близько 125</i>', '<b>Азія</b><br><i>близько 125</i>', '<b>Пд. Америка</b><br><i>близько 125</i>','<b>Європа</b><br><i>близько 125</i>', '<b>Україна<br><i>близько 125</i>', '<b>Австралія</b><br><i>близько 125</i>', '<b>Антарктика</b><br><i>близько 125</i>', '<b>Африка</b><br><i>близько 125</i>', '<b>Океанія</b><br><i>близько 125</i>'],
+      mode: 'markers',
       marker: {
         size: [10, 10, 10, 10, 10, 10, 10, 10, 10],
-        color: [100, 90, 50, 75, 90, 85, 90, 85, 97],
+        color: [100, 90, 50, 75, 90, 85, 90, 85, 97, 0],
         colorscale: 'Reds',
-        reversescale: false,
         colorbar: {
-          title: 'Кількість'
+            x: 0.85,
         },
         opacity: 0.85
       }
@@ -30,9 +34,8 @@
   ];
 
   var layout = {
-    title: 'Кількість видів із різних частин світу',
+    title: '<b>Види з різних частин світу<br>та України (у тисячах)</b>',
     geo: {
-      showframe: false,
       showcoastlines: true,
       showland: true,
       landcolor: '#74b370',
