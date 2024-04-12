@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+</head>
+<body>
+
+<div id="myDiv" style="width: 100%; height: 100%;"></div>
+
+<script>
+  var data = [
+    {
+      type: 'scattergeo',
+      locationmode: 'country names',
+      locations: ['USA', 'Mongolia', 'Brazil', 'France', 'Ukraine', 'Australia', 'Antarctica', 'Central African Republic', 'Fiji'],
+      hoverinfo: 'text',
+      text: ['Північна Америка', 'Азія', 'Південна Америка','Europe', 'Україна', 'Австралія', 'Антарктика', 'Африка', 'Океанія'],
+      mode: 'markers+text',
+      marker: {
+        size: [10, 10, 10, 10, 10, 10, 10, 10, 10],
+        color: [100, 90, 50, 75, 90, 85, 90, 85, 97],
+        colorscale: 'Reds',
+        reversescale: false,
+        colorbar: {
+          title: 'Кількість'
+        },
+        opacity: 0.85
+      }
+    }
+  ];
+
+  var layout = {
+    title: 'Кількість видів із різних частин світу',
+    geo: {
+      showframe: false,
+      showcoastlines: true,
+      showland: true,
+      landcolor: '#74b370',
+      projection: {
+        type: 'orthographic'
+      }
+    }
+  };
+
+  Plotly.newPlot('myDiv', data, layout);
+</script>
+
+</body>
+</html>
