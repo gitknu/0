@@ -1,0 +1,56 @@
+<html>
+<head>
+    <style>
+        .fade {
+            margin: 50px;
+            padding: 50px;
+            background-color: lightgreen;
+            opacity: 1;
+            transition: opacity 0.5s, transform 0.5s;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <div class="fade">Fade In 01</div>
+        <div class="fade">Fade In 02</div>
+        <div class="fade">Fade In 03</div>
+        <div class="fade">Fade In 04</div>
+        <div class="fade">Fade In 05</div>
+        <div class="fade">Fade In 06</div>
+        <div class="fade">Fade In 07</div>
+        <div class="fade">Fade In 08</div>
+        <div class="fade">Fade In 09</div>
+        <div class="fade">Fade In 10</div>
+    </div>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            window.addEventListener("scroll", function() {
+                var fadeElements = document.querySelectorAll(".fade");
+                var windowBottom = window.pageYOffset + window.innerHeight;
+                var windowHeight = window.innerHeight;
+                fadeElements.forEach(function(element) {
+                    var elementBottom = element.offsetTop + element.offsetHeight;
+                    if (elementBottom < windowBottom) {
+                        if (getComputedStyle(element).opacity == 0) {
+                            element.style.transition = "opacity 0.5s, transform 0.5s";
+                            element.style.opacity = 1;
+                            element.style.transform = "translateX(0)";
+                        }
+                    } else { 
+                        if (getComputedStyle(element).opacity == 1) {
+                            var distanceToTop = element.getBoundingClientRect().top;
+                            var distanceToBottom = windowHeight - distanceToTop;
+
+                            element.style.transition = "opacity 0.5s, transform 0.5s";
+                            element.style.opacity = 0;
+                            element.style.transform = "translateX(" + (distanceToBottom / windowHeight) * 100 + "%)";
+                        }
+                    }
+                });
+            });
+            window.dispatchEvent(new Event("scroll"));
+        });
+    </script>
+</body>
+</html>
