@@ -1,22 +1,33 @@
-<!DOCTYPE html>
 <html>
 <head>
   <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
-  <style>
-    #plotly_map {
+<style>
+    #red_box, #plotly_map {
+      position: absolute;
+      height: 45%;
+      width: 45%;
+      right: -15%;
+      overflow: hidden;
+    }
+    #red_box {
+      width: 45%; 
+      height: 30px;
+      z-index: 99;
+      background-color: white;
       pointer-events: none;
     }
-    #plotly_map .plotly {
-      pointer-events: auto;
+
+    body {
+      background-color: black;
+      margin: 0; /* Remove default margin */
+      overflow: hidden; /* Hide page overflow */
     }
   </style>
 </head>
-<body>
-
-<div id="plotly_map" style="width: 100%; height: 100%;"></div>
-
+<body style="background-color: black;">
+<div id="red_box"></div>
+<div id="plotly_map"></div>
 <script>
-
   var data = [
     {
       type: 'scattergeo',
@@ -33,7 +44,6 @@
       }
     }
   ];
-
   var layout = {
     title: '<b>Види з різних частин світу<br>та України (у тисячах)</b>',
     geo: {
@@ -47,9 +57,7 @@
       }
     }
   };
-
   Plotly.newPlot('plotly_map', data, layout);
 </script>
-
 </body>
 </html>
