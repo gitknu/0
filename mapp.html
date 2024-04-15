@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+  <style>
+    #plotly_map {
+      pointer-events: none;
+    }
+    #plotly_map .plotly {
+      pointer-events: auto;
+    }
+  </style>
+</head>
+<body>
+
+<div id="plotly_map" style="width: 100%; height: 100%;"></div>
+
+<script>
+
+  var data = [
+    {
+      type: 'scattergeo',
+      locationmode: 'country names',
+      locations: ['USA', 'Mongolia', 'Brazil', 'France', 'Ukraine', 'Australia', 'Antarctica', 'Central African Republic', 'Fiji'],
+      hoverinfo: 'text',
+      text: ['<b>Пн. Америка</b><br><i>близько 125</i>', '<b>Азія</b><br><i>близько 125</i>', '<b>Пд. Америка</b><br><i>близько 125</i>','<b>Європа</b><br><i>близько 125</i>', '<b>Україна<br><i>близько 125</i>', '<b>Австралія</b><br><i>близько 125</i>', '<b>Антарктика</b><br><i>близько 125</i>', '<b>Африка</b><br><i>близько 125</i>', '<b>Океанія</b><br><i>близько 125</i>'],
+      mode: 'markers',
+      marker: {
+        size: [10, 10, 10, 10, 10, 10, 10, 10, 10],
+        color: [100, 90, 50, 75, 90, 85, 90, 85, 97, 0],
+        colorscale: 'Reds',
+        opacity: 0.75,
+      }
+    }
+  ];
+
+  var layout = {
+    title: '<b>Види з різних частин світу<br>та України (у тисячах)</b>',
+    geo: {
+      showcoastlines: true,
+      showland: true,
+      showocean:true,
+      oceancolor:'#c9d2e0',
+      landcolor: '#74b370',
+      projection: {
+        type: 'orthographic'
+      }
+    }
+  };
+
+  Plotly.newPlot('plotly_map', data, layout);
+</script>
+
+</body>
+</html>
