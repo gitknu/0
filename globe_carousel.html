@@ -1,1 +1,53 @@
+<html>
+<head>
+  <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+<style>
+    #plotly_map {
+      position: absolute;
+      right: -100px;
+      top: -30px;
+      overflow: hidden;
+    }
+    body {
+      background-color: black;
+      margin: 0; /* Remove default margin */
+      overflow: hidden; /* Hide page overflow */
+    }
+  </style>
+</head>
+<body>
+<div id="plotly_map"></div>
+<script>
+  var data = [
+    {
+      type: 'scattergeo',
+      locationmode: 'country names',
+      locations: ['USA', 'Mongolia', 'Brazil', 'France', 'Ukraine', 'Australia', 'Antarctica', 'Central African Republic', 'Fiji'],
+      hoverinfo: 'text',
+      text: ['<b>Пн. Америка</b><br><i>близько 125</i>', '<b>Азія</b><br><i>близько 125</i>', '<b>Пд. Америка</b><br><i>близько 125</i>','<b>Європа</b><br><i>близько 125</i>', '<b>Україна<br><i>близько 125</i>', '<b>Австралія</b><br><i>близько 125</i>', '<b>Антарктика</b><br><i>близько 125</i>', '<b>Африка</b><br><i>близько 125</i>', '<b>Океанія</b><br><i>близько 125</i>'],
+      mode: 'markers',
+      marker: {
+        size: [10, 10, 10, 10, 10, 10, 10, 10, 10],
+        color: [100, 90, 50, 75, 90, 85, 90, 85, 97, 0],
+        colorscale: 'Reds',
+        opacity: 0.75,
+      }
+    }
+  ];
+  var layout = {
+    geo: {
+      showcoastlines: true,
+      showland: true,
+      showocean:true,
+      oceancolor:'#c9d2e0',
+      landcolor: '#74b370',
+      projection: {
+        type: 'orthographic'
+      }
+    }
+  };
+  Plotly.newPlot('plotly_map', data, layout);
+</script>
+</body>
+</html>
 
