@@ -255,10 +255,20 @@ transform: translateY(1px); /* Move text down by 3px */
 }
 
 #museum_head_img {
+padding-left: 5vw;
+padding-top: 7vh; 
+}
+
+#museum_head_txt {
+padding-left: 30vw;
+color: black;
+font-size: 2em;
+padding-top: 15vh;
+}
+
+#museum_head_img, #museum_head_txt {
 max-height:50vh; 
 max-width:30vw;
-padding-left: 5vw; 
-padding-top: 7vh; 
 float: left;
 position: absolute;
 z-index: 999;
@@ -267,8 +277,9 @@ z-index: 999;
 </head>
 <body>
 <div class="full_screen">
-<img id="museum_head_img" src="https://gitknu.github.io/0/zoo_head.png" />
-<div id="plotly_map"></div>
+    <img id="museum_head_img" src="https://gitknu.github.io/0/zoo_head.png" />
+    <h2 id="museum_head_txt">Велич музейної колекції просто вражає! Я працюю тут майже все своє життя і можу сказати, що побачила увесь світ</h3>
+    <div id="plotly_map"></div>
 </div>
 <div class="full_screen"><h1 style="color: black;">СЕКЦІЯ 2</h1></div>
 <div class="full_screen"><h1 style="color: black;">СЕКЦІЯ 3</h1></div>
