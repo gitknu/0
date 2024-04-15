@@ -2,6 +2,216 @@
 <head>
   <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
 <style>
+ @import url('https://fonts.googleapis.com/css2?family=Montserrat+Alternates:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Yanone+Kaffeesatz:wght@200..700&display=swap');
+ #up_button, #down_button {
+    right:20px;
+	width:70px;
+	height:70px;
+        text-decoration: none;
+	position:fixed;
+        opacity: 0.7;
+	background-color:pink;
+	color:black;
+	border-radius:50%;
+	text-align:center;
+	box-shadow: 2px 2px 3px #999;
+	  display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#up_button {
+	bottom:100px;
+}
+#down_button {
+	bottom:20px;
+}
+.button_icon {
+height: 45px;
+width: auto;
+}
+@media (max-width: 1367px) and (orientation: portrait) {
+.button_icon {
+height: 150px;
+width: auto;
+}
+ #up_button, #down_button {
+    right:20px;
+	width:200px;
+	height:200px;
+}
+#up_button {
+	bottom:240px;
+}
+#down_button {
+	bottom:20px;
+}
+}  
+
+body {
+x-overflow: hidden;
+}
+model-viewer {
+    display: block;
+    margin: 5px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(10, 10, 10, 0.5) 0%, rgba(0, 0, 0, 0.8) 50%, rgba(0, 0, 0, 1) 100%);
+    touch-action: none;
+    width: 100px;
+    height: 100px;
+    box-shadow: 0 0 50px rgba(255, 255, 255, 0.3), 0 0 20px rgba(255, 255, 255, 0.5), 0 0 100px rgba(255, 255, 255, 0.2); 
+    perspective: 1000px; 
+    transform-style: preserve-3d;
+}
+
+#model-viewer-wrapper_1 {
+    display: block;
+}
+
+.model-viewer-wrapper {
+    position: relative;
+    display: none;
+    text-align: center;
+    top: 220px;
+}
+
+body {
+  margin: 0;
+font-family: "Montserrat Alternates", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  color: white;
+    -webkit-touch-callout: none; 
+    -webkit-user-select: none; 
+    -khtml-user-select: none; 
+    -moz-user-select: none; 
+    -ms-user-select: none;
+    user-select: none;
+}
+.container {
+  position: relative;
+  width: 320px;
+  margin: 100px auto 0 auto;
+  perspective: 1000px;
+}
+
+.carousel {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d; 
+  transition: transform 2.1s ease;
+}
+.carousel__face { 
+  opacity: 0.95;
+  border-radius:20px;
+  position: absolute;
+  width: 300px;
+  height: 225px;
+  top: 20px;
+  left: 10px;
+  right: 10px;
+  background-size: cover;
+  box-shadow:
+  inset 0 0 0 2000px rgba(0,0,0,0.2), 
+  0 0 25px rgba(0, 0, 0, 0.5);
+  display: flex;
+  opacity: 0;
+}
+#carousel__face_10, #carousel__face_2 {
+      opacity: 0.4;
+      }
+#carousel__face_1 {
+      opacity: 1;
+}
+span {
+  margin: 10px;
+  font-size: 9px;
+}
+#rotateButton {
+  display: inline-block;
+  height: 75px;
+  margin: 2px 75px;
+  padding: 4px 0 0 10px;
+  background: -webkit-linear-gradient(
+    left,
+    #FDB0C0 0%,
+    #f5c4ce 30px,
+    #f5d3d9 50px,
+    #f5d7dd 100%
+  );
+  background: -moz-linear-gradient(
+    left,
+    #FDB0C0 0%,
+    #f5c4ce 30px,
+    #f5d3d9 50px,
+    #f5d7dd 100%
+  );
+  width: 150px;
+  border: 6px solid transparent;
+  border-width: 7px 7px 10px 8px;
+  border-image: -moz-linear-gradient(
+      top,
+      #999 0%,
+      #d99eaa 45%,
+      #d99eaa 55%,
+      #ccc 95%,
+      #ddd 100%
+    )
+    49%;
+  border-image: -webkit-linear-gradient(
+      top,
+      #999 0%,
+      #d99eaa 45%,
+      #d99eaa 55%,
+      #ccc 95%,
+      #ddd 100%
+    )
+    49%;
+  box-shadow: 3px -5px 6px rgba(100, 100, 100, 0.6),
+    -4px -4px 6px rgba(100, 100, 100, 0.4),
+    4px -2px 5px rgba(100, 100, 100, 0.5);
+  box-sizing: border-box;
+  cursor: pointer;
+  position: relative;
+  top: 500px;
+  transition: transform 0.1s, font-size 0.1s;
+}
+
+#rotateButton:active {
+transform: translateY(1px); /* Move text down by 3px */
+  font-size: 1px smaller;
+  background: -moz-linear-gradient(
+    left,
+    #eda8b7 0%,
+    #f5c4ce 30px,
+    #f5d3d9 50px,
+    #f5d7dd 100%
+  );
+  background: -webkit-linear-gradient(
+    left,
+    #eda8b7 0%,
+    #f5c4ce 30px,
+    #f5d3d9 50px,
+    #f5d7dd 100%
+  );
+  box-shadow: 1px -3px 6px rgba(100, 100, 100, 0.6),
+    -3px -3px 6px rgba(100, 100, 100, 0.3),
+    4px -2px 6px rgba(100, 100, 100, 0.3);
+}
+.carousel__face {
+  background-color: #FDB0C0;
+}
+.carousel__face:nth-child(1) { transform: rotateY(0deg) translateZ(500px); }
+.carousel__face:nth-child(2) { transform: rotateY(36deg) translateZ(500px); }
+.carousel__face:nth-child(3) { transform: rotateY(72deg) translateZ(500px); }
+.carousel__face:nth-child(4) { transform: rotateY(108deg) translateZ(500px); }
+.carousel__face:nth-child(5) { transform: rotateY(144deg) translateZ(500px); }
+.carousel__face:nth-child(6) { transform: rotateY(180deg) translateZ(500px); }
+.carousel__face:nth-child(7) { transform: rotateY(216deg) translateZ(500px); }
+.carousel__face:nth-child(8) { transform: rotateY(252deg) translateZ(500px); }
+.carousel__face:nth-child(9) { transform: rotateY(288deg) translateZ(500px); }
+.carousel__face:nth-child(10) { transform: rotateY(324deg) translateZ(500px); }
+  
     #plotly_map {
       position: absolute;
       right: -100px;
