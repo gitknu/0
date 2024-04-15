@@ -24,6 +24,21 @@
 	  display: flex;
     justify-content: center;
     align-items: center;
+     transition: all 0.4s ease-in-out; /* Adjusted transition timing */
+}
+
+#up_button:hover,
+#down_button:hover {
+    width: 65px;
+    height: 65px;
+    box-shadow: 5px 5px 6px black;
+    transition: all 0.4s ease-in-out, box-shadow 0.4s ease-in-out; 
+}
+
+#up_button:hover .button_icon,
+#down_button:hover .button_icon {
+    transform: scale(0.95);
+    transition: all 0.4s ease-in-out;
 }
 #up_button {
 	bottom:100px;
@@ -34,6 +49,7 @@
 .button_icon {
 height: 45px;
 width: auto;
+    transition: all 0.4s ease-in-out;
 }
 @media (max-width: 1367px) and (orientation: portrait) {
 .button_icon {
