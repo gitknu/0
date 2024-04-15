@@ -1,0 +1,724 @@
+<html>
+<head>
+  <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+<script type="module" src="model-viewer.min.js"></script>
+    <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.4.0/model-viewer.min.js"></script>
+<style>
+ @import url('https://fonts.googleapis.com/css2?family=Montserrat+Alternates:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Yanone+Kaffeesatz:wght@200..700&display=swap');
+ html, body {
+	overflow-x: hidden;
+}
+ #up_button, #down_button {
+    right:20px;
+	width:70px;
+	height:70px;
+        text-decoration: none;
+	position:fixed;
+        opacity: 0.7;
+	background-color:pink;
+	color:black;
+	border-radius:50%;
+	text-align:center;
+	box-shadow: 2px 2px 3px #999;
+	  display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#up_button {
+	bottom:100px;
+}
+#down_button {
+	bottom:20px;
+}
+.button_icon {
+height: 45px;
+width: auto;
+}
+@media (max-width: 1367px) and (orientation: portrait) {
+.button_icon {
+height: 150px;
+width: auto;
+}
+ #up_button, #down_button {
+    right:20px;
+	width:200px;
+	height:200px;
+}
+#up_button {
+	bottom:240px;
+}
+#down_button {
+	bottom:20px;
+}
+}  	
+body {
+  margin: 0;
+font-family: "Montserrat Alternates", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  color: white;
+    -webkit-touch-callout: none; 
+    -webkit-user-select: none; 
+    -khtml-user-select: none; 
+    -moz-user-select: none; 
+    -ms-user-select: none;
+    user-select: none;
+    }
+	
+model-viewer {
+    display: block;
+    margin: 5px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(10, 10, 10, 0.5) 0%, rgba(0, 0, 0, 0.8) 50%, rgba(0, 0, 0, 1) 100%);
+    touch-action: none;
+    width: 100px;
+    height: 100px;
+    box-shadow: 0 0 50px rgba(255, 255, 255, 0.3), 0 0 20px rgba(255, 255, 255, 0.5), 0 0 100px rgba(255, 255, 255, 0.2); 
+    perspective: 1000px; 
+    transform-style: preserve-3d;
+}
+
+#model-viewer-wrapper_1 {
+    display: block;
+}
+
+.model-viewer-wrapper {
+    position: relative;
+    display: none;
+    width: 100vw;
+    left: -120px;
+    top: 160px;
+}
+
+.container {
+  position: relative;
+  width: 320px;
+  margin: 100px auto 0 auto;
+  perspective: 1000px;
+}
+
+.carousel {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d; 
+  transition: transform 2.1s ease;
+}
+.carousel__face { 
+  opacity: 0.95;
+  border-radius:20px;
+  position: absolute;
+  width: 300px;
+  height: 225px;
+  top: 20px;
+  left: 10px;
+  right: 10px;
+  background-size: cover;
+  box-shadow:
+  inset 0 0 0 2000px rgba(0,0,0,0.2), 
+  0 0 25px rgba(0, 0, 0, 0.5);
+  display: flex;
+  opacity: 0;
+}
+#carousel__face_10, #carousel__face_2 {
+      opacity: 0.4;
+      }
+#carousel__face_1 {
+      opacity: 1;
+}
+span {
+  margin: 10px;
+  font-size: 9px;
+}
+#rotateButton {
+  display: inline-block;
+  height: 75px;
+  margin: 2px 75px;
+  padding: 4px 0 0 10px;
+  background: -webkit-linear-gradient(
+    left,
+    #FDB0C0 0%,
+    #f5c4ce 30px,
+    #f5d3d9 50px,
+    #f5d7dd 100%
+  );
+  background: -moz-linear-gradient(
+    left,
+    #FDB0C0 0%,
+    #f5c4ce 30px,
+    #f5d3d9 50px,
+    #f5d7dd 100%
+  );
+  width: 150px;
+  border: 6px solid transparent;
+  border-width: 7px 7px 10px 8px;
+  border-image: -moz-linear-gradient(
+      top,
+      #999 0%,
+      #d99eaa 45%,
+      #d99eaa 55%,
+      #ccc 95%,
+      #ddd 100%
+    )
+    49%;
+  border-image: -webkit-linear-gradient(
+      top,
+      #999 0%,
+      #d99eaa 45%,
+      #d99eaa 55%,
+      #ccc 95%,
+      #ddd 100%
+    )
+    49%;
+  box-shadow: 3px -5px 6px rgba(100, 100, 100, 0.6),
+    -4px -4px 6px rgba(100, 100, 100, 0.4),
+    4px -2px 5px rgba(100, 100, 100, 0.5);
+  box-sizing: border-box;
+  cursor: pointer;
+  position: relative;
+  top: 500px;
+  transition: transform 0.1s, font-size 0.1s;
+}
+
+#rotateButton:active {
+transform: translateY(1px); /* Move text down by 3px */
+  font-size: 1px smaller;
+  background: -moz-linear-gradient(
+    left,
+    #eda8b7 0%,
+    #f5c4ce 30px,
+    #f5d3d9 50px,
+    #f5d7dd 100%
+  );
+  background: -webkit-linear-gradient(
+    left,
+    #eda8b7 0%,
+    #f5c4ce 30px,
+    #f5d3d9 50px,
+    #f5d7dd 100%
+  );
+  box-shadow: 1px -3px 6px rgba(100, 100, 100, 0.6),
+    -3px -3px 6px rgba(100, 100, 100, 0.3),
+    4px -2px 6px rgba(100, 100, 100, 0.3);
+}
+.carousel__face {
+  background-color: #FDB0C0;
+}
+.carousel__face:nth-child(1) { transform: rotateY(0deg) translateZ(500px); }
+.carousel__face:nth-child(2) { transform: rotateY(36deg) translateZ(500px); }
+.carousel__face:nth-child(3) { transform: rotateY(72deg) translateZ(500px); }
+.carousel__face:nth-child(4) { transform: rotateY(108deg) translateZ(500px); }
+.carousel__face:nth-child(5) { transform: rotateY(144deg) translateZ(500px); }
+.carousel__face:nth-child(6) { transform: rotateY(180deg) translateZ(500px); }
+.carousel__face:nth-child(7) { transform: rotateY(216deg) translateZ(500px); }
+.carousel__face:nth-child(8) { transform: rotateY(252deg) translateZ(500px); }
+.carousel__face:nth-child(9) { transform: rotateY(288deg) translateZ(500px); }
+.carousel__face:nth-child(10) { transform: rotateY(324deg) translateZ(500px); }
+  
+    #plotly_map {
+      position: absolute;
+      right: -100px;
+      top: -30px;
+      overflow: hidden;
+    }
+    .full_screen {
+        height: 100vh;
+        width: 100%;
+    }
+  </style>
+</head>
+<body>
+<div class="full_screen"><div id="plotly_map"></div></div>
+	<a href="https://google.com" id="up_button" style="display: flex; justify-content: center; align-items: center;"> 
+  <img class="button_icon" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIGlkPSJtZGktcGVuY2lsIiB2aWV3Qm94PSIwIDAgMjQgMjQiPjxwYXRoIGQ9Ik0yMC43MSw3LjA0QzIxLjEsNi42NSAyMS4xLDYgMjAuNzEsNS42M0wxOC4zNywzLjI5QzE4LDIuOSAxNy4zNSwyLjkgMTYuOTYsMy4yOUwxNS4xMiw1LjEyTDE4Ljg3LDguODdNMywxNy4yNVYyMUg2Ljc1TDE3LjgxLDkuOTNMMTQuMDYsNi4xOEwzLDE3LjI1WiIgLz48L3N2Zz4=" />
+</a>
+    <a href="https://google.com" id="down_button">
+	<img class="button_icon" src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBzdGFuZGFsb25lPSJubyI/Pgo8IURPQ1RZUEUgc3ZnIFBVQkxJQyAiLS8vVzNDLy9EVEQgU1ZHIDIwMDEwOTA0Ly9FTiIKICJodHRwOi8vd3d3LnczLm9yZy9UUi8yMDAxL1JFQy1TVkctMjAwMTA5MDQvRFREL3N2ZzEwLmR0ZCI+CjxzdmcgdmVyc2lvbj0iMS4wIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciCiB3aWR0aD0iNDguMDAwMDAwcHQiIGhlaWdodD0iNDguMDAwMDAwcHQiIHZpZXdCb3g9IjAgMCA0OC4wMDAwMDAgNDguMDAwMDAwIgogcHJlc2VydmVBc3BlY3RSYXRpbz0ieE1pZFlNaWQgbWVldCI+Cgo8ZyB0cmFuc2Zvcm09InRyYW5zbGF0ZSgwLjAwMDAwMCw0OC4wMDAwMDApIHNjYWxlKDAuMTAwMDAwLC0wLjEwMDAwMCkiCmZpbGw9IiMwMDAwMDAiIHN0cm9rZT0ibm9uZSI+CjxwYXRoIGQ9Ik03NiA0NTAgYy05MSAtODAgLTYzIC0yMTUgNzMgLTM1MCA5OSAtOTggMTkxIC0xMjEgMjcwIC02NiA1MyAzNyA1NAo2NCA0IDEwNSAtNDMgMzYgLTgyIDQwIC0xMDggMTEgLTM2IC0zOSAtODggLTE3IC0xNDYgNjMgLTM3IDUxIC0zNiA3MyAyIDExMwoyMyAyNCAyOSAzNyAyNCA1NiAtNyAyOCAtNjEgOTggLTc1IDk4IC01IDAgLTI1IC0xNCAtNDQgLTMweiIvPgo8L2c+Cjwvc3ZnPgo=" /> 
+    </a>
+    <div class="full_screen">
+    <div id="carousel_and_models">
+<div class="container">
+  <div class="carousel">
+    <div class="carousel__face" id="carousel__face_1"><span><h3>Найбільша колекція метеликів</h3><p>Гордістю Зоологічного музею є всесвітньо відома колекція денних метеликів, яка налічує близько півмільйона екземплярів. Її основу складає зібрання відомого українського зоолога Лева Шелюжка, яке він та його батько подарували музею.</p><p>Іншу значну частину експозиції складають птахи. Від найменших у світі колібрі до найрозповсюдженіших на планеті голубів.</p></span></div>
+    <div class="carousel__face" id="carousel__face_2"><span><h3>Величезна експозиція птахів</h3><p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries.</p>
+   </span></div>
+    <div class="carousel__face" id="carousel__face_3"><span><h3>Птахи Червоної книги</h3><p>Окремої уваги заслуговують тварини на межі вимирання. Еволюційна боротьба, зміни клімату, згубний вплив людської діяльності на природу - усе це можна простежити у тутешніх залах.</p><p>У музеї є приклади малочисельних, а подекуди і вже вимерлих, видів. Вони стосуються далеко не тільки птахів.</p></span></div>
+    <div class="carousel__face" id="carousel__face_4"><span><h3>Різноманіття Світового океану</h3><p>Вода покриває понад 70% поверхні земної кулі. Водночас, близько 80% усіх видів на Землі проживає в океанах. Чого лише вартують види, котрі досягли біологічного безсмертя та ті, що не змінювалися протягом сотень мільйонів років.</p><p>Відома нам історія життя починається саме тут.</p></span></div>
+    <div class="carousel__face" id="carousel__face_5"><span><h3>Риби</h3><p>Голови Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries.</p></span></div>
+    <div class="carousel__face" id="carousel__face_6"><span><h3>Найбільші серед сучасників</h3><p>Своєрідною окрасою музею є скелет величезного кита - фінвала. Окрім нього, тут представлені індійський слон, білий ведмідь, велетенський кенгуру та багато інших.</p><p>Подивіться в очі грізним хижакам та підніміть голову аби глянути на велетенських травоїдних.</p></span></div>
+    <div class="carousel__face" id="carousel__face_7"><span><h3>Вражаючі таксидермічні роботи</h3><p>Кожен представлений вид є результатом кропіткої праці спеціаліста з таксидермії, котрий створив це опудало. Від величезних трофейних голів до крихітних лялечок метеликів - усе це було зроблено понад півстоліття і більше років тому</p><p>Ці творіння дбайливо зберігалися поколіннями музейних співробітників до наших днів.</p></span></div>
+    <div class="carousel__face" id="carousel__face_8"><span><h3>Різноманіття ссавців</h3><p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries.</p></span></div>
+    <div class="carousel__face" id="carousel__face_9"><span><h3>Тварини різних континентів</h3><p>Північна та Південна Америки, Євразія, Африка, Океанія та навіть Антарктида.</p><p>Тварини з усіх куточків земної кулі зібрані у кількох залах і представлені для Вас, як на долоні.</p></span></div>
+    <div class="carousel__face" id="carousel__face_10"><span><h3>Завітайте до нас!</h3><p>Ці та багато інших експонатів чекають на Вас!</p><p>Саме тут, у Червоному корпусі КНУТШ, в одному з найстаріших музеїв України, професіонали своєї справи з багаторічним стажем розкриють Вам вражаюче біологічне різноманіття нашого світу.</p><p>Зареєструватися на екскурсію можна за посиланнями справа знизу або за телефоном (044) 239-32-77.</p></span></div>
+  </div>
+    <div id="rotateButton" style="color: #a19295; text-align: center; font-family: Arial;"><h2>Далі →</h2></div>
+    <span id="rotationCountDisplay" style="color: black">0</span>
+</div>
+  <script>
+        function createModelViewer(idPrefix, start, end) {
+            const carousel = document.querySelector('.container');
+            for (let i = start; i <= end; i++) {
+                let div = document.createElement("div");
+                div.className = "model-viewer-wrapper";
+                div.id = idPrefix + i;
+                for (let j = 1; j <= 5; j++) {
+                    let modelViewer = document.createElement("model-viewer");
+                    modelViewer.id = "model-viewer" + ((i - 1) * 5 + j);
+                    modelViewer.setAttribute("src", "https://gitknu.github.io/0/models/" + ((i - 1) * 5 + j) + ".glb");
+                    modelViewer.setAttribute("interpolationDecay", "7500");
+                    modelViewer.style.display = "inline-block";
+                    div.appendChild(modelViewer);
+                }
+                carousel.appendChild(div);
+            }
+        }
+        createModelViewer("model-viewer-wrapper_", 1, 10);
+    </script>
+</div>
+<script>
+  const carousel = document.querySelector('.carousel');
+  const rotateButton = document.getElementById('rotateButton');
+  const rotationCountDisplay = document.getElementById('rotationCountDisplay');
+  const carouselFace1 = document.getElementById('carousel__face_1');
+  const carouselFace2 = document.getElementById('carousel__face_2');
+  const carouselFace3 = document.getElementById('carousel__face_3');
+  const carouselFace4 = document.getElementById('carousel__face_4');
+  const carouselFace5 = document.getElementById('carousel__face_5');
+  const carouselFace6 = document.getElementById('carousel__face_6');
+  const carouselFace7 = document.getElementById('carousel__face_7');
+  const carouselFace8 = document.getElementById('carousel__face_8');
+  const carouselFace9 = document.getElementById('carousel__face_9');
+  const carouselFace10 = document.getElementById('carousel__face_10');
+  const modelViewerWr1 = document.getElementById('model-viewer-wrapper_1');
+  const modelViewerWr2 = document.getElementById('model-viewer-wrapper_2');
+  const modelViewerWr3 = document.getElementById('model-viewer-wrapper_3');
+  const modelViewerWr4 = document.getElementById('model-viewer-wrapper_4');
+  const modelViewerWr5 = document.getElementById('model-viewer-wrapper_5');
+  const modelViewerWr6 = document.getElementById('model-viewer-wrapper_6');
+  const modelViewerWr7 = document.getElementById('model-viewer-wrapper_7');
+  const modelViewerWr8 = document.getElementById('model-viewer-wrapper_8');
+  const modelViewerWr9 = document.getElementById('model-viewer-wrapper_9');
+  const modelViewerWr10 = document.getElementById('model-viewer-wrapper_10');
+  let rotationAngle = 0;
+  let rotationCount = 1;
+  let rotationInterval;
+  function rotateCarousel() {
+      
+      const handleOpacityTransition = (wrapperId) => {
+            const modelViewerWrapper = document.getElementById(wrapperId);
+            modelViewerWrapper.style.opacity = '0';
+            setTimeout(() => {
+                modelViewerWrapper.style.transition = 'opacity 1.55s ease';
+                modelViewerWrapper.style.opacity = '1';
+            }, 2000);
+        };
+        handleOpacityTransition('model-viewer-wrapper_1');
+        handleOpacityTransition('model-viewer-wrapper_2');
+        handleOpacityTransition('model-viewer-wrapper_3');
+        handleOpacityTransition('model-viewer-wrapper_4');
+        handleOpacityTransition('model-viewer-wrapper_5');
+        handleOpacityTransition('model-viewer-wrapper_6');
+        handleOpacityTransition('model-viewer-wrapper_7');
+        handleOpacityTransition('model-viewer-wrapper_8');
+        handleOpacityTransition('model-viewer-wrapper_9');
+        handleOpacityTransition('model-viewer-wrapper_10');
+        
+    rotationAngle -= 36;
+    carousel.style.transform = `rotateY(${rotationAngle}deg)`;
+    if (rotationAngle % 360 === 0 && Number.isInteger(rotationAngle / 360)) {
+      rotationCount = 0; 
+    }
+    rotationCount++;
+    rotationCountDisplay.textContent = `${rotationCount}`;
+    if (rotationCount === 1) {
+      carouselFace1.style.transition = 'opacity 0.75s ease';
+      carouselFace1.style.opacity = 1;
+      carouselFace2.style.transition = 'opacity 0.75s ease';
+      carouselFace2.style.opacity = 0.4;
+      carouselFace3.style.opacity = 0;
+      carouselFace4.style.opacity = 0;
+      carouselFace5.style.opacity = 0;
+      carouselFace6.style.opacity = 0;
+      carouselFace7.style.opacity = 0;
+      carouselFace8.style.opacity = 0;
+      carouselFace9.style.transition = 'opacity 0.75s ease';
+      carouselFace9.style.opacity = 0;
+      carouselFace10.style.transition = 'opacity 0.75s ease';
+      carouselFace10.style.opacity = 0.4;
+      modelViewerWr1.style.display = "block";
+      modelViewerWr2.style.display = "none";
+      modelViewerWr3.style.display = "none";
+      modelViewerWr4.style.display = "none";
+      modelViewerWr5.style.display = "none";
+      modelViewerWr6.style.display = "none";
+      modelViewerWr7.style.display = "none";
+      modelViewerWr8.style.display = "none";
+      modelViewerWr9.style.display = "none";
+      modelViewerWr10.style.display = "none";
+    } else if (rotationCount === 2) {
+      carouselFace1.style.transition = 'opacity 0.75s ease';
+      carouselFace1.style.opacity = 0.4;
+      carouselFace2.style.transition = 'opacity 0.75s ease';
+      carouselFace2.style.opacity = 1;
+      carouselFace3.style.transition = 'opacity 0.75s ease';
+      carouselFace3.style.opacity = 0.4;
+      carouselFace4.style.opacity = 0;
+      carouselFace5.style.opacity = 0;
+      carouselFace6.style.opacity = 0;
+      carouselFace7.style.opacity = 0;
+      carouselFace8.style.opacity = 0;
+      carouselFace9.style.opacity = 0;
+      carouselFace10.style.transition = 'opacity 0.75s ease';
+      carouselFace10.style.opacity = 0;
+      modelViewerWr1.style.display = "none";
+      modelViewerWr2.style.display = "block";
+      modelViewerWr3.style.display = "none";
+      modelViewerWr4.style.display = "none";
+      modelViewerWr5.style.display = "none";
+      modelViewerWr6.style.display = "none";
+      modelViewerWr7.style.display = "none";
+      modelViewerWr8.style.display = "none";
+      modelViewerWr9.style.display = "none";
+      modelViewerWr10.style.display = "none";
+    } else if (rotationCount === 3) {
+      carouselFace1.style.transition = 'opacity 0.75s ease';
+      carouselFace1.style.opacity = 0;
+      carouselFace2.style.transition = 'opacity 0.75s ease';
+      carouselFace2.style.opacity = 0.4;
+      carouselFace3.style.transition = 'opacity 0.75s ease';
+      carouselFace3.style.opacity = 1;
+      carouselFace4.style.transition = 'opacity 0.75s ease';
+      carouselFace4.style.opacity = 0.4;
+      carouselFace5.style.opacity = 0;
+      carouselFace6.style.opacity = 0;
+      carouselFace7.style.opacity = 0;
+      carouselFace8.style.opacity = 0;
+      carouselFace9.style.opacity = 0;
+      carouselFace10.style.opacity = 0;
+      modelViewerWr1.style.display = "none";
+      modelViewerWr2.style.display = "none";
+      modelViewerWr3.style.display = "block";
+      modelViewerWr4.style.display = "none";
+      modelViewerWr5.style.display = "none";
+      modelViewerWr6.style.display = "none";
+      modelViewerWr7.style.display = "none";
+      modelViewerWr8.style.display = "none";
+      modelViewerWr9.style.display = "none";
+      modelViewerWr10.style.display = "none";
+    } else if (rotationCount === 4) {
+      carouselFace1.style.opacity = 0;
+      carouselFace1.style.transition = 'opacity 0.75s ease';
+      carouselFace2.style.opacity = 0;
+      carouselFace3.style.transition = 'opacity 0.75s ease';
+      carouselFace3.style.opacity = 0.4;
+      carouselFace4.style.transition = 'opacity 0.75s ease';
+      carouselFace4.style.opacity = 1;
+      carouselFace5.style.transition = 'opacity 0.75s ease';
+      carouselFace5.style.opacity = 0.4;
+      carouselFace6.style.opacity = 0;
+      carouselFace7.style.opacity = 0;
+      carouselFace8.style.opacity = 0;
+      carouselFace9.style.opacity = 0;
+      carouselFace10.style.opacity = 0;
+      modelViewerWr1.style.display = "none";
+      modelViewerWr2.style.display = "none";
+      modelViewerWr3.style.display = "none";
+      modelViewerWr4.style.display = "block";
+      modelViewerWr5.style.display = "none";
+      modelViewerWr6.style.display = "none";
+      modelViewerWr7.style.display = "none";
+      modelViewerWr8.style.display = "none";
+      modelViewerWr9.style.display = "none";
+      modelViewerWr10.style.display = "none";
+    } else if (rotationCount === 5) {
+      carouselFace1.style.opacity = 0;
+      carouselFace2.style.opacity = 0;
+      carouselFace3.style.transition = 'opacity 0.75s ease';
+      carouselFace3.style.opacity = 0;
+      carouselFace4.style.transition = 'opacity 0.75s ease';
+      carouselFace4.style.opacity = 0.4;
+      carouselFace5.style.transition = 'opacity 0.75s ease';
+      carouselFace5.style.opacity = 1;
+      carouselFace6.style.transition = 'opacity 0.75s ease';
+      carouselFace6.style.opacity = 0.4;
+      carouselFace7.style.opacity = 0;
+      carouselFace8.style.opacity = 0;
+      carouselFace9.style.opacity = 0;
+      carouselFace10.style.opacity = 0;
+      modelViewerWr1.style.display = "none";
+      modelViewerWr2.style.display = "none";
+      modelViewerWr3.style.display = "none";
+      modelViewerWr4.style.display = "none";
+      modelViewerWr5.style.display = "block";
+      modelViewerWr6.style.display = "none";
+      modelViewerWr7.style.display = "none";
+      modelViewerWr8.style.display = "none";
+      modelViewerWr9.style.display = "none";
+      modelViewerWr10.style.display = "none";
+    } else if (rotationCount === 6) {
+      carouselFace1.style.opacity = 0;
+      carouselFace2.style.opacity = 0;
+      carouselFace3.style.opacity = 0;
+      carouselFace4.style.transition = 'opacity 0.75s ease';
+      carouselFace4.style.opacity = 0;
+      carouselFace5.style.transition = 'opacity 0.75s ease';
+      carouselFace5.style.opacity = 0.4;
+      carouselFace6.style.transition = 'opacity 0.75s ease';
+      carouselFace6.style.opacity = 1;
+      carouselFace7.style.transition = 'opacity 0.75s ease';
+      carouselFace7.style.opacity = 0.4;
+      carouselFace8.style.opacity = 0;
+      carouselFace9.style.opacity = 0;
+      carouselFace10.style.opacity = 0;
+      modelViewerWr1.style.display = "none";
+      modelViewerWr2.style.display = "none";
+      modelViewerWr3.style.display = "none";
+      modelViewerWr4.style.display = "none";
+      modelViewerWr5.style.display = "none";
+      modelViewerWr6.style.display = "block";
+      modelViewerWr7.style.display = "none";
+      modelViewerWr8.style.display = "none";
+      modelViewerWr9.style.display = "none";
+      modelViewerWr10.style.display = "none";
+    } else if (rotationCount === 7) {
+      carouselFace1.style.opacity = 0;
+      carouselFace2.style.opacity = 0;
+      carouselFace3.style.opacity = 0;
+      carouselFace4.style.opacity = 0;
+      carouselFace5.style.transition = 'opacity 0.75s ease';
+      carouselFace5.style.opacity = 0;
+      carouselFace6.style.transition = 'opacity 0.75s ease';
+      carouselFace6.style.opacity = 0.4;
+      carouselFace7.style.transition = 'opacity 0.75s ease';
+      carouselFace7.style.opacity = 1;
+      carouselFace8.style.transition = 'opacity 0.75s ease';
+      carouselFace8.style.opacity = 0.4;
+      carouselFace9.style.opacity = 0;
+      carouselFace10.style.opacity = 0;
+      modelViewerWr1.style.display = "none";
+      modelViewerWr2.style.display = "none";
+      modelViewerWr3.style.display = "none";
+      modelViewerWr4.style.display = "none";
+      modelViewerWr5.style.display = "none";
+      modelViewerWr6.style.display = "none";
+      modelViewerWr7.style.display = "block";
+      modelViewerWr8.style.display = "none";
+      modelViewerWr9.style.display = "none";
+      modelViewerWr10.style.display = "none";
+    } else if (rotationCount === 8) {
+      carouselFace1.style.opacity = 0;
+      carouselFace2.style.opacity = 0;
+      carouselFace3.style.opacity = 0;
+      carouselFace4.style.opacity = 0;
+      carouselFace5.style.opacity = 0;
+      carouselFace6.style.transition = 'opacity 0.75s ease';
+      carouselFace6.style.opacity = 0;
+      carouselFace7.style.transition = 'opacity 0.75s ease';
+      carouselFace7.style.opacity = 0.4;
+      carouselFace8.style.transition = 'opacity 0.75s ease';
+      carouselFace8.style.opacity = 1;
+      carouselFace9.style.transition = 'opacity 0.75s ease';
+      carouselFace9.style.opacity = 0.4;
+      carouselFace10.style.opacity = 0;
+      modelViewerWr1.style.display = "none";
+      modelViewerWr2.style.display = "none";
+      modelViewerWr3.style.display = "none";
+      modelViewerWr4.style.display = "none";
+      modelViewerWr5.style.display = "none";
+      modelViewerWr6.style.display = "none";
+      modelViewerWr7.style.display = "none";
+      modelViewerWr8.style.display = "block";
+      modelViewerWr9.style.display = "none";
+      modelViewerWr10.style.display = "none";
+    } else if (rotationCount === 9) {
+      carouselFace1.style.opacity = 0;
+      carouselFace2.style.opacity = 0;
+      carouselFace3.style.opacity = 0;
+      carouselFace4.style.opacity = 0;
+      carouselFace5.style.opacity = 0;
+      carouselFace6.style.opacity = 0;
+      carouselFace7.style.transition = 'opacity 0.75s ease';
+      carouselFace7.style.opacity = 0;
+      carouselFace8.style.transition = 'opacity 0.75s ease';
+      carouselFace8.style.opacity = 0.4;
+      carouselFace9.style.transition = 'opacity 0.75s ease';
+      carouselFace9.style.opacity = 1;
+      carouselFace10.style.transition = 'opacity 0.75s ease';
+      carouselFace10.style.opacity = 0.4;
+      modelViewerWr1.style.display = "none";
+      modelViewerWr2.style.display = "none";
+      modelViewerWr3.style.display = "none";
+      modelViewerWr4.style.display = "none";
+      modelViewerWr5.style.display = "none";
+      modelViewerWr6.style.display = "none";
+      modelViewerWr7.style.display = "none";
+      modelViewerWr8.style.display = "none";
+      modelViewerWr9.style.display = "block";
+      modelViewerWr10.style.display = "none";
+    } else if (rotationCount === 10) {
+      carouselFace1.style.transition = 'opacity 0.75s ease';
+      carouselFace1.style.opacity = 0.4;
+      carouselFace2.style.opacity = 0;
+      carouselFace3.style.opacity = 0;
+      carouselFace4.style.opacity = 0;
+      carouselFace5.style.opacity = 0;
+      carouselFace6.style.opacity = 0;
+      carouselFace7.style.opacity = 0;
+      carouselFace8.style.transition = 'opacity 0.75s ease';
+      carouselFace8.style.opacity = 0;
+      carouselFace9.style.transition = 'opacity 0.75s ease';
+      carouselFace9.style.opacity = 0.4;
+      carouselFace10.style.transition = 'opacity 0.75s ease';
+      carouselFace10.style.opacity = 1;
+      modelViewerWr1.style.display = "none";
+      modelViewerWr2.style.display = "none";
+      modelViewerWr3.style.display = "none";
+      modelViewerWr4.style.display = "none";
+      modelViewerWr5.style.display = "none";
+      modelViewerWr6.style.display = "none";
+      modelViewerWr7.style.display = "none";
+      modelViewerWr8.style.display = "none";
+      modelViewerWr9.style.display = "none";
+      modelViewerWr10.style.display = "block";
+    } else { 
+      
+    }
+  }
+  function startRotation() {
+    rotationInterval = setInterval(rotateCarousel, 30000);
+  }
+  function stopRotation() {
+    clearInterval(rotationInterval);
+  }
+  function startOrResetRotationTimer() {
+    clearTimeout(startOrResetRotationTimer.timer);
+    startOrResetRotationTimer.timer = setTimeout(startRotation, 60000);
+  }
+let isButtonDisabled = false;
+rotateButton.addEventListener('click', () => {
+    if (!isButtonDisabled) {
+        stopRotation();
+        rotateCarousel();
+        startOrResetRotationTimer();
+        const handleOpacityTransition = (wrapperId) => {
+            const modelViewerWrapper = document.getElementById(wrapperId);
+            modelViewerWrapper.style.opacity = '0';
+            setTimeout(() => {
+                modelViewerWrapper.style.transition = 'opacity 1.55s ease';
+                modelViewerWrapper.style.opacity = '1';
+            }, 2000);
+        };
+        handleOpacityTransition('model-viewer-wrapper_1');
+        handleOpacityTransition('model-viewer-wrapper_2');
+        handleOpacityTransition('model-viewer-wrapper_3');
+        handleOpacityTransition('model-viewer-wrapper_4');
+        handleOpacityTransition('model-viewer-wrapper_5');
+        handleOpacityTransition('model-viewer-wrapper_6');
+        handleOpacityTransition('model-viewer-wrapper_7');
+        handleOpacityTransition('model-viewer-wrapper_8');
+        handleOpacityTransition('model-viewer-wrapper_9');
+        handleOpacityTransition('model-viewer-wrapper_10');
+        isButtonDisabled = true;
+        setTimeout(() => {
+            isButtonDisabled = false;
+        }, 3500);
+    }
+});
+carousel.addEventListener('click', startOrResetRotationTimer);
+let rotationAllowed = true;
+document.addEventListener('keydown', (event) => {
+    if (event.key === 'ArrowRight' && rotationAllowed) {
+        stopRotation();
+        rotateCarousel();
+        startOrResetRotationTimer();
+        const handleOpacityTransition = (wrapperId) => {
+            const modelViewerWrapper = document.getElementById(wrapperId);
+            modelViewerWrapper.style.opacity = '0';
+            setTimeout(() => {
+                modelViewerWrapper.style.transition = 'opacity 1.55s ease';
+                modelViewerWrapper.style.opacity = '1';
+            }, 2000);
+        };
+        handleOpacityTransition('model-viewer-wrapper_1');
+        handleOpacityTransition('model-viewer-wrapper_2');
+        handleOpacityTransition('model-viewer-wrapper_3');
+        handleOpacityTransition('model-viewer-wrapper_4');
+        handleOpacityTransition('model-viewer-wrapper_5');
+        handleOpacityTransition('model-viewer-wrapper_6');
+        handleOpacityTransition('model-viewer-wrapper_7');
+        handleOpacityTransition('model-viewer-wrapper_8');
+        handleOpacityTransition('model-viewer-wrapper_9');
+        handleOpacityTransition('model-viewer-wrapper_10');
+        rotationAllowed = false;
+        setTimeout(() => {
+            rotationAllowed = true;
+        }, 3500); 
+    }
+});
+  startRotation();
+</script>
+<script>
+(() => {
+    const modelViewers = Array.from({ length: 50 }, (_, i) => document.getElementById(`model-viewer${i + 1}`));
+    let isDragging = false;
+    let startX, startY;
+    function startDrag(event) {
+        isDragging = true;
+        startX = event.clientX;
+        startY = event.clientY;
+        clearInterval(orbitInterval);
+    }
+    function drag(event) {
+        if (!isDragging) return;
+        const sensitivity = 0.2;
+        const deltaX = event.clientX - startX;
+        const deltaY = event.clientY - startY;
+        for (const modelViewer of modelViewers) {
+            const orbit = modelViewer.cameraOrbit;
+            const [yaw, pitch, radius] = orbit.split(' ');
+            const newYaw = parseFloat(yaw) + deltaX * sensitivity;
+            const newPitch = parseFloat(pitch) - deltaY * sensitivity;
+            modelViewer.cameraOrbit = `${newYaw}deg ${newPitch}deg ${radius}`;
+        }
+        startX = event.clientX;
+        startY = event.clientY;
+    }
+    document.addEventListener('mousemove', drag);
+    document.addEventListener('mousedown', startDrag);
+    document.addEventListener('mouseup', endDrag);
+})();
+</script>
+<script>
+  var data = [
+    {
+      type: 'scattergeo',
+      locationmode: 'country names',
+      locations: ['USA', 'Mongolia', 'Brazil', 'France', 'Ukraine', 'Australia', 'Antarctica', 'Central African Republic', 'Fiji'],
+      hoverinfo: 'text',
+      text: ['<b>Пн. Америка</b><br><i>близько 125</i>', '<b>Азія</b><br><i>близько 125</i>', '<b>Пд. Америка</b><br><i>близько 125</i>','<b>Європа</b><br><i>близько 125</i>', '<b>Україна<br><i>близько 125</i>', '<b>Австралія</b><br><i>близько 125</i>', '<b>Антарктика</b><br><i>близько 125</i>', '<b>Африка</b><br><i>близько 125</i>', '<b>Океанія</b><br><i>близько 125</i>'],
+      mode: 'markers',
+      marker: {
+        size: [10, 10, 10, 10, 10, 10, 10, 10, 10],
+        color: [100, 90, 50, 75, 90, 85, 90, 85, 97, 0],
+        colorscale: 'Reds',
+        opacity: 0.75,
+      }
+    }
+  ];
+  var layout = {
+    geo: {
+      showcoastlines: true,
+      showland: true,
+      showocean:true,
+      oceancolor:'#c9d2e0',
+      landcolor: '#74b370',
+      projection: {
+        type: 'orthographic'
+      }
+    }
+  };
+  Plotly.newPlot('plotly_map', data, layout);
+</script>
+</div>
+</body>
+</html>
