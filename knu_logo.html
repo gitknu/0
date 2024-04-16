@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+ body {
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.container {
+  display: flex;
+  flex-direction: row;
+  gap: 15px;
+}
+
+.column {
+  position: relative; 
+  width: 15px; 
+  height: 100px;
+  background-color: #b72928;
+  border-radius: 10px;
+}
+
+.top-overlay, .bottom-overlay {
+  position: absolute;
+  left: 50%; /* Updated */
+  transform: translateX(-50%); 
+  height: 7px;
+  width: 25px;
+  background-color: black;
+  border-radius: 10px;
+}
+
+.top-overlay {
+  top: 0;
+}
+
+.bottom-overlay {
+  bottom: 0;
+}
+</style>
+</head>
+<body>
+  <div class="container">
+    <div class="column">
+      <div class="top-overlay"></div>
+      <div class="bottom-overlay"></div>
+    </div>
+    <div class="column">
+      <div class="top-overlay"></div>
+      <div class="bottom-overlay"></div>
+    </div>
+    <div class="column">
+      <div class="top-overlay"></div>
+      <div class="bottom-overlay"></div>
+    </div>
+    <div class="column">
+      <div class="top-overlay"></div>
+      <div class="bottom-overlay"></div>
+    </div>
+    <div class="column">
+      <div class="top-overlay"></div>
+      <div class="bottom-overlay"></div>
+    </div>
+    <div class="column">
+      <div class="top-overlay"></div>
+      <div class="bottom-overlay"></div>
+    </div>
+    <div class="column">
+      <div class="top-overlay"></div>
+      <div class="bottom-overlay"></div>
+    </div>
+    <div class="column">
+      <div class="top-overlay"></div>
+      <div class="bottom-overlay"></div>
+    </div>
+  </div>
+</body>
+</html>
